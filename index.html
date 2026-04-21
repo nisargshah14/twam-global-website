@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TWAM GLOBAL — Premium Agricultural Exports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">TG</span>
+      <span class="logo-text">TWAM <em>GLOBAL</em></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero-section">
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <img id="hero-bg-img" src="" class="hero-img" alt="Agricultural fields">
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge reveal" id="hero-badge">Loading...</div>
+    <h1 class="hero-title reveal delay-1" id="hero-headline"></h1>
+    <p class="hero-sub reveal delay-2" id="hero-sub"></p>
+    <div class="hero-actions reveal delay-3">
+      <a href="products.html" class="btn btn-gold" id="hero-cta">Explore Products</a>
+      <a href="about.html" class="btn btn-ghost">Our Story</a>
+    </div>
+    <div class="hero-stats reveal delay-4" id="hero-stats"></div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marquee-track"></div>
+</div>
+
+<!-- ABOUT PREVIEW -->
+<section class="about-preview section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="img-stack">
+          <img id="about-img-main" src="" class="img-main" alt="Export products">
+          <img id="about-img-accent" src="" class="img-accent" alt="Grains">
+          <div class="img-badge">
+            <span class="badge-num" id="about-badge-num"></span>
+            <span class="badge-text" id="about-badge-label"></span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal delay-1">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title" id="about-heading"></h2>
+        <p id="about-para1"></p>
+        <p id="about-para2"></p>
+        <a href="about.html" class="btn btn-green mt-2">Discover Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-section section bg-off">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Portfolio</div>
+      <h2 class="section-title">Premium Product<br><em>Categories</em></h2>
+      <p class="section-sub">Sourced from India's finest growing regions, processed to international standards</p>
+    </div>
+    <div class="product-grid" id="product-grid"></div>
+    <div class="center mt-4 reveal">
+      <a href="products.html" class="btn btn-green">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Why TWAM GLOBAL</div>
+      <h2 class="section-title" id="why-heading"></h2>
+    </div>
+    <div class="why-grid" id="why-grid"></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section bg-dark">
+  <div class="container">
+    <div class="cert-inner">
+      <div class="cert-text reveal">
+        <div class="section-tag light">Certified & Compliant</div>
+        <h2 class="section-title light">International Standards<br><em>You Can Trust</em></h2>
+        <p class="light-text">Every product we export meets strict international quality and safety benchmarks, backed by globally recognised certifications.</p>
+      </div>
+      <div class="cert-badges reveal delay-1" id="cert-badges"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="cta-content">
+        <div class="section-tag">Start Today</div>
+        <h2 class="section-title" id="cta-heading"></h2>
+        <p id="cta-subtext"></p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-gold">Contact Us Now</a>
+          <a href="products.html" class="btn btn-outline-green">Browse Products</a>
+        </div>
+      </div>
+      <div class="cta-image">
+        <img id="cta-img" src="" alt="Export cargo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-mark">TG</span>
+          <span class="logo-text">TWAM <em>GLOBAL</em></span>
+        </a>
+        <p id="footer-tagline"></p>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="WhatsApp">W</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="products.html#spices">Spices</a></li>
+          <li><a href="products.html#rice">Rice</a></li>
+          <li><a href="products.html#pulses">Pulses</a></li>
+          <li><a href="products.html#oilseeds">Oil Seeds</a></li>
+          <li><a href="products.html#sugar">Sugar</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact" id="footer-contact"></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> TWAM GLOBAL. All rights reserved.</p>
+      <p>Designed for global excellence.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="cms-loader.js"></script>
+</body>
+</html>

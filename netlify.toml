@@ -1,0 +1,27 @@
+[build]
+  publish = "."
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Enable Netlify Identity for CMS login
+[template.environment]
+  NETLIFY_IDENTITY_INSTANCE_URL = "your-site-url.netlify.app"
+
+# Redirect /admin to admin panel
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# Cache static assets
+[[headers]]
+  for = "/images/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/content/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Access-Control-Allow-Origin = "*"
