@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — TWAM GLOBAL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+<nav id="navbar" class="scrolled">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">TG</span><span class="logo-text">TWAM <em>GLOBAL</em></span></a>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&q=80" class="page-hero-img" alt="Export cargo">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <span>Contact</span></div>
+      <div class="section-tag light">Get In Touch</div>
+      <h1 class="page-title">Let's Start a<br><em>Conversation</em></h1>
+      <p>Whether you're looking for pricing, samples, or a long-term supply partner — our team is ready to help you source the best.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Talk to Our Export Team</h3>
+        <p>We're available for enquiries from international buyers, importers, and wholesalers. Reach out for product specs, pricing, MOQ details, and custom packaging requirements.</p>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="detail-icon">📧</div>
+            <div class="detail-text">
+              <h4>Email</h4>
+              <p><span id="c-email1">info@twamglobal.com</span><br><span id="c-email2">exports@twamglobal.com</span></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">📞</div>
+            <div class="detail-text">
+              <h4>Phone / WhatsApp</h4>
+              <p><span id="c-phone1">+91 98765 43210</span><br><span id="c-phone2">+91 91234 56789</span></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-text">
+              <h4>Office Address</h4>
+              <p>
+                <span id="c-address1">TWAM GLOBAL</span><br>
+                <span id="c-address2">123, Trade Centre, Ashram Road</span><br>
+                <span id="c-address3">Ahmedabad — 380006, Gujarat, India</span>
+              </p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">🕐</div>
+            <div class="detail-text">
+              <h4>Business Hours</h4>
+              <p id="c-hours">Monday – Saturday, 9:00 AM – 7:00 PM IST</p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:40px;padding:24px;background:var(--off-white);border-radius:8px;border:1px solid var(--border);">
+          <h4 style="font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:16px;">Our Certifications</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;" id="cert-chips">
+            <span style="padding:6px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--green);">APEDA</span>
+            <span style="padding:6px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--green);">FSSAI</span>
+            <span style="padding:6px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--green);">ISO 9001</span>
+            <span style="padding:6px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--green);">HACCP</span>
+            <span style="padding:6px 12px;background:var(--white);border:1px solid var(--border);border-radius:4px;font-size:0.8rem;font-weight:600;color:var(--green);">Organic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal delay-1">
+        <h3>Send Us an Enquiry</h3>
+        <p>Fill in the form below and our team will get back to you within 24 working hours.</p>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="firstName">First Name</label><input type="text" id="firstName" placeholder="John" required></div>
+            <div class="form-group"><label for="lastName">Last Name</label><input type="text" id="lastName" placeholder="Smith" required></div>
+          </div>
+          <div class="form-group"><label for="company">Company / Organisation</label><input type="text" id="company" placeholder="Your Import Co. Ltd."></div>
+          <div class="form-row">
+            <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="john@yourcompany.com" required></div>
+            <div class="form-group"><label for="phone">Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+1 555 000 0000"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="country">Country</label>
+              <select id="country">
+                <option value="">Select Country</option>
+                <option>United Arab Emirates</option><option>Saudi Arabia</option>
+                <option>United Kingdom</option><option>United States</option>
+                <option>Germany</option><option>Netherlands</option>
+                <option>Malaysia</option><option>Singapore</option>
+                <option>Indonesia</option><option>South Africa</option>
+                <option>Kenya</option><option>Bangladesh</option>
+                <option>Sri Lanka</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="product">Product Interest</label>
+              <select id="product">
+                <option value="">Select Category</option>
+                <option>Spices</option><option>Oil Seeds</option><option>Edible Oils</option>
+                <option>Sugar</option><option>Rice</option><option>Raisins</option>
+                <option>Agriculture Products</option><option>Pulses</option>
+                <option>Multiple Categories</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="quantity">Approximate Quantity</label><input type="text" id="quantity" placeholder="e.g. 1 x 20ft FCL, 5 MT, 50 bags"></div>
+          <div class="form-group"><label for="message">Message / Requirements</label><textarea id="message" placeholder="Please share any specific requirements — grade, packaging, destination port, certifications needed, etc."></textarea></div>
+          <button type="submit" class="btn btn-green" style="width:100%;justify-content:center;font-size:1rem;padding:16px;">Send Enquiry →</button>
+          <p class="form-note">🔒 Your information is kept private and will only be used to respond to your enquiry.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div style="padding:0;">
+  <div style="height:320px;background:linear-gradient(135deg,var(--green) 0%,#155740 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;opacity:0.05;background-image:url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 60 60\"><path d=\"M0 30 Q15 0 30 30 Q45 60 60 30\" fill=\"none\" stroke=\"white\" stroke-width=\"0.5\"/></svg>');background-size:60px 60px;"></div>
+    <div style="text-align:center;position:relative;z-index:1;">
+      <div style="font-size:3rem;margin-bottom:12px;">📍</div>
+      <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--white);margin-bottom:8px;">Ahmedabad, Gujarat, India</h3>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;" id="c-address3-map">Ahmedabad — 380006, Gujarat, India</p>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;padding:10px 24px;background:var(--gold);color:var(--green);border-radius:4px;font-weight:600;font-size:0.85rem;">Open in Maps →</a>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK STRIP -->
+<div style="background:var(--green);padding:32px 0;">
+  <div class="container">
+    <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;text-align:center;">
+      <div>
+        <div style="font-size:1.5rem;margin-bottom:4px;">📧</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Email</div>
+        <a id="strip-email" href="mailto:info@twamglobal.com" style="color:var(--gold);font-weight:600;">info@twamglobal.com</a>
+      </div>
+      <div>
+        <div style="font-size:1.5rem;margin-bottom:4px;">📞</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Call / WhatsApp</div>
+        <span id="strip-phone" style="color:var(--gold);font-weight:600;">+91 98765 43210</span>
+      </div>
+      <div>
+        <div style="font-size:1.5rem;margin-bottom:4px;">💬</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Response Time</div>
+        <span style="color:var(--white);font-weight:600;">Within 24 working hours</span>
+      </div>
+      <div>
+        <div style="font-size:1.5rem;margin-bottom:4px;">🌍</div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">We Export To</div>
+        <span style="color:var(--white);font-weight:600;">50+ Countries Worldwide</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-mark">TG</span><span class="logo-text">TWAM <em>GLOBAL</em></span></a>
+        <p id="footer-tagline">Trusted exporters of premium Indian agricultural products to global markets since 2010.</p>
+        <div class="footer-socials"><a href="#">in</a><a href="#">𝕏</a><a href="#">W</a></div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="products.html">Products</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html#spices">Spices</a></li><li><a href="products.html#rice">Rice</a></li><li><a href="products.html#pulses">Pulses</a></li><li><a href="products.html#oilseeds">Oil Seeds</a></li><li><a href="products.html#sugar">Sugar</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact" id="footer-contact-list"><li><span>📧</span> info@twamglobal.com</li><li><span>📞</span> +91 98765 43210</li><li><span>📍</span> Ahmedabad, Gujarat, India</li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="footer-year">2025</span> TWAM GLOBAL. All rights reserved.</p><p>Designed for global excellence.</p></div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script src="cms-data.js"></script>
+</body>
+</html>
