@@ -1,0 +1,26 @@
+{
+  "heading": "Trusted Exporters, Global Partners",
+  "subtext": "Built on integrity, quality, and a passion for delivering India's finest agricultural produce to the world.",
+  "hero_image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80",
+  "intro": {
+    "heading": "TWAM GLOBAL — A Name That Travels",
+    "para1": "Founded in Ahmedabad, Gujarat, TWAM GLOBAL has grown from a regional agricultural trader to a globally recognised export brand. Our name carries with it the promise of purity, precision, and partnership.",
+    "para2": "We operate at the intersection of India's rich agricultural heritage and the world's demand for quality food commodities. From sourcing to shipping, every step of our process is driven by deep industry expertise and unwavering commitment to excellence.",
+    "para3": "Our team of agronomists, quality inspectors, and logistics professionals ensures that every order is executed to the highest standard. We don't just export products; we export trust.",
+    "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80"
+  },
+  "stats": [
+    { "num": "2010", "label": "Year Founded" },
+    { "num": "50+", "label": "Export Destinations" },
+    { "num": "200+", "label": "Product SKUs" },
+    { "num": "1200+", "label": "Shipments Delivered" }
+  ],
+  "vision": {
+    "heading": "Our Vision",
+    "content": "To be the most trusted and preferred Indian agricultural export company in the world — recognised for the quality of our produce, the integrity of our operations, and the strength of our partnerships across continents. We envision a world where every table — from Mumbai to Milan — is enriched by the finest of India's agricultural bounty."
+  },
+  "mission": {
+    "heading": "Our Mission",
+    "content": "To source, process, and deliver premium agricultural commodities from India to global buyers — maintaining the highest standards of quality, compliance, and reliability at every step. We are committed to fair-trade principles, sustainable sourcing, and building long-term, value-driven relationships with both our farming communities and international clients."
+  }
+}

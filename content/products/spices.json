@@ -1,0 +1,16 @@
+{
+  "name": "Spices",
+  "emoji": "🌶",
+  "cover_image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80",
+  "description": "Turmeric, Cumin, Coriander, Chilli & more",
+  "products": [
+    { "name": "Turmeric Powder", "sublabel": "High curcumin content", "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&q=80" },
+    { "name": "Cumin Seeds", "sublabel": "Bold aroma, premium grade", "image": "https://images.unsplash.com/photo-1599909533731-b7b97de48c8a?w=400&q=80" },
+    { "name": "Coriander Seeds", "sublabel": "Whole & split varieties", "image": "https://images.unsplash.com/photo-1546548970-71785318a17b?w=400&q=80" },
+    { "name": "Dry Red Chilli", "sublabel": "Teja, Byadagi, Guntur", "image": "https://images.unsplash.com/photo-1574218365241-f17e3be9b34a?w=400&q=80" },
+    { "name": "Fenugreek Seeds", "sublabel": "Export quality cleaned", "image": "https://images.unsplash.com/photo-1638439430466-b2bb7fdc1d67?w=400&q=80" },
+    { "name": "Cardamom", "sublabel": "Green & bold grade", "image": "https://images.unsplash.com/photo-1556911073-52527ac43761?w=400&q=80" },
+    { "name": "Black Pepper", "sublabel": "550 & 600 GL grade", "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
+    { "name": "Mixed Spices", "sublabel": "Blended & custom mixes", "image": "https://images.unsplash.com/photo-1570982522015-5c5f6f4e65d9?w=400&q=80" }
+  ]
+}

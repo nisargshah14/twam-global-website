@@ -1,0 +1,14 @@
+{
+  "name": "Oil Seeds",
+  "emoji": "🌻",
+  "cover_image": "https://images.unsplash.com/photo-1611894546188-14ee44c24e00?w=600&q=80",
+  "description": "Sesame, Groundnut, Mustard, Flaxseed",
+  "products": [
+    { "name": "Sesame Seeds", "sublabel": "White, Black, Hulled", "image": "https://images.unsplash.com/photo-1611894546188-14ee44c24e00?w=400&q=80" },
+    { "name": "Groundnut", "sublabel": "Bold, Java & TJ varieties", "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&q=80" },
+    { "name": "Mustard Seeds", "sublabel": "Yellow & Black varieties", "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80" },
+    { "name": "Sunflower Seeds", "sublabel": "Confectionery & oil grade", "image": "https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=400&q=80" },
+    { "name": "Flaxseed / Linseed", "sublabel": "Golden & brown varieties", "image": "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=400&q=80" },
+    { "name": "Castor Seeds", "sublabel": "85/87 grade, export quality", "image": "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&q=80" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "headline": "Global Exporters of Premium Agricultural Products",
+    "subheadline": "Delivering nature's finest from farm to world — quality assured, globally compliant, reliably supplied.",
+    "badge": "Trusted Globally Since 2010",
+    "cta_text": "Explore Products",
+    "hero_image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=80",
+    "stats": [
+      { "num": "50+", "label": "Countries Served" },
+      { "num": "200+", "label": "Products" },
+      { "num": "15+", "label": "Years Export" }
+    ]
+  },
+  "about_preview": {
+    "heading1": "Rooted in India,",
+    "heading2": "Reaching the World",
+    "para1": "TWAM GLOBAL is a premier agricultural export company committed to delivering the finest Indian produce to international markets. With deep-rooted expertise and a relentless focus on quality, we bridge farmers and global buyers with trust and precision.",
+    "para2": "Our rigorous quality control, compliance with international standards, and strong logistics network make us the preferred sourcing partner for importers across 50+ countries.",
+    "image_main": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80",
+    "image_accent": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&q=80",
+    "badge_num": "15+",
+    "badge_label": "Years of Excellence"
+  },
+  "why_us": {
+    "heading": "Excellence at Every Step of the Journey",
+    "cards": [
+      { "icon": "✅", "title": "Uncompromised Quality", "desc": "Every shipment undergoes rigorous multi-stage quality inspection — from farm sourcing to final loading — ensuring international-grade standards are consistently met." },
+      { "icon": "🌾", "title": "Direct Farm Sourcing", "desc": "We partner directly with trusted farmers across India's prime agricultural belts, ensuring traceability, freshness, and fair-trade practices at the source." },
+      { "icon": "📦", "title": "Export-Grade Packaging", "desc": "Our packaging solutions are tailored for international shipping — moisture-proof, tamper-evident, and compliant with destination country regulations." },
+      { "icon": "🌍", "title": "Global Reach", "desc": "Established supply chains to 50+ countries across Asia, Europe, Middle East, and Africa — with experienced logistics coordination and on-time delivery records." },
+      { "icon": "🏅", "title": "Certifications & Compliance", "desc": "Fully certified with APEDA, FSSAI, ISO, and Phytosanitary standards. We handle all documentation, ensuring smooth customs clearance at every destination port." },
+      { "icon": "🤝", "title": "Dedicated Account Support", "desc": "Each client gets a dedicated relationship manager — ensuring prompt communication, custom pricing, flexible MOQ, and personalised end-to-end service." }
+    ]
+  },
+  "cta": {
+    "heading": "Ready to Source Premium Indian Products?",
+    "subtext": "Get in touch with our export team for custom pricing, samples, and shipping quotes tailored to your requirements.",
+    "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&q=80"
+  }
+}

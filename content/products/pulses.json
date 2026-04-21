@@ -1,0 +1,16 @@
+{
+  "name": "Pulses",
+  "emoji": "🫘",
+  "cover_image": "https://images.unsplash.com/photo-1515543904379-3d757afe72c4?w=600&q=80",
+  "description": "Lentils, Chickpeas, Moong, Toor Dal",
+  "products": [
+    { "name": "Red Lentils (Masoor)", "sublabel": "Whole & split varieties", "image": "https://images.unsplash.com/photo-1515543904379-3d757afe72c4?w=400&q=80" },
+    { "name": "Chickpeas", "sublabel": "Kabuli & Desi grade", "image": "https://images.unsplash.com/photo-1571680322279-a226e6a4cc2a?w=400&q=80" },
+    { "name": "Moong Dal", "sublabel": "Green whole & yellow split", "image": "https://images.unsplash.com/photo-1594995846645-2b71e43b38f7?w=400&q=80" },
+    { "name": "Toor Dal", "sublabel": "Arhar, polished & unpolished", "image": "https://images.unsplash.com/photo-1608093832430-e536a10a6b10?w=400&q=80" },
+    { "name": "Urad Dal", "sublabel": "Black & white washed", "image": "https://images.unsplash.com/photo-1540914124281-342587941389?w=400&q=80" },
+    { "name": "Kidney Beans", "sublabel": "Red & white Rajma", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80" },
+    { "name": "Green Peas", "sublabel": "Dry & split varieties", "image": "https://images.unsplash.com/photo-1589881133825-bba3b5315a9d?w=400&q=80" },
+    { "name": "Chana Dal", "sublabel": "Split bengal gram", "image": "https://images.unsplash.com/photo-1568840370005-b68cd3f4578b?w=400&q=80" }
+  ]
+}
