@@ -80,6 +80,34 @@ Access the admin panel at `https://your-site.netlify.app/admin`.
 
 ---
 
+## Manual Deploy (CLI)
+
+Use this to deploy on demand without pushing to git and triggering an auto-deploy (avoids consuming build minutes unnecessarily).
+
+**1. Install Netlify CLI (one time)**
+```bash
+npm install -g netlify-cli
+```
+
+**2. Login (one time)**
+```bash
+netlify login
+```
+
+**3. Deploy to production**
+```bash
+netlify deploy --dir . --site 3aa811d2-aa0d-4d87-92a1-f655cfdf5a31 --prod
+```
+
+**4. Preview deploy (draft URL, does not go live)**
+```bash
+netlify deploy --dir . --site 3aa811d2-aa0d-4d87-92a1-f655cfdf5a31
+```
+
+> **Tip:** Omit `--prod` to get a one-off preview URL first. Add `--prod` only when ready to push live.
+
+---
+
 ## Continuous Deployment
 
 Once connected, every push to the `main` branch automatically triggers a new deploy on Netlify. No manual steps required.
