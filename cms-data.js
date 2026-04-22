@@ -1,10 +1,10 @@
 /**
  * TWAM GLOBAL — CMS Data Patcher
- * 
+ *
  * Strategy: The HTML keeps its full original structure & design.
  * This script ONLY patches text/images into elements that have
  * data-cms="key.path" attributes — everything else is untouched.
- * 
+ *
  * Admin saves content → JSON files update → this script reads them
  * → patches values into the exact right spots on page load.
  */
@@ -23,86 +23,73 @@
     return path.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
   }
 
-  // ── Patch a single element ──────────────────────────────────────
   function patch(el, value) {
     if (!value) return;
-    if (el.tagName === 'IMG') {
-      el.src = value;
-    } else if (el.tagName === 'A' && el.dataset.cmsHref) {
-      el.href = value;
-    } else {
-      el.innerHTML = value; // allows <br>, <em> etc.
-    }
+    if (el.tagName === 'IMG') el.src = value;
+    else if (el.tagName === 'A' && el.dataset.cmsHref) el.href = value;
+    else el.innerHTML = value;
   }
 
-  // ── Load all JSON files needed for this page ───────────────────
-  const page = location.pathname.split('/').pop() || 'index.html';
-
-  const [home, about, contact, spices, oilseeds, edibleoils, sugar, rice, raisins, agri, pulses] =
-    await Promise.all([
-      (page === '' || page === 'index.html') ? load('/content/pages/home.json') : Promise.resolve(null),
-      (page === 'about.html' || page === '' || page === 'index.html') ? load('/content/pages/about.json') : Promise.resolve(null),
-      load('/content/pages/contact.json'),
-      load('/content/products/spices.json'),
-      load('/content/products/oilseeds.json'),
-      load('/content/products/edibleoils.json'),
-      load('/content/products/sugar.json'),
-      load('/content/products/rice.json'),
-      load('/content/products/raisins.json'),
-      load('/content/products/agri.json'),
-      load('/content/products/pulses.json'),
-    ]);
-
-  const categories = { spices, oilseeds, edibleoils, sugar, rice, raisins, agri, pulses };
-  const catOrder   = ['spices','oilseeds','edibleoils','sugar','rice','raisins','agri','pulses'];
-
-  // ── 1. Patch data-cms attributes (generic) ────────────────────
-  document.querySelectorAll('[data-cms]').forEach(el => {
-    const key    = el.dataset.cms;       // e.g. "home.hero.headline"
-    const source = key.split('.')[0];    // "home" | "about" | "contact"
-    const subkey = key.split('.').slice(1).join('.');
-
-    const map = { home, about, contact };
-    const data = map[source];
-    if (!data) return;
-
-    const value = get(data, subkey);
-    if (value !== null) patch(el, value);
-  });
-
-  // ── 2. Hero stats (home) ──────────────────────────────────────
-  if (home?.hero?.stats) {
-    const statsEl = document.getElementById('hero-stats');
-    if (statsEl) {
-      statsEl.innerHTML = home.hero.stats.map((s, i) =>
-        (i > 0 ? '<div class="stat-div"></div>' : '') +
-        `<div class="stat">
-          <span class="stat-num">${s.num}</span>
-          <span class="stat-label">${s.label}</span>
-        </div>`
-      ).join('');
-    }
+  function hideEl(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
   }
 
-  // ── 3. Why Choose Us cards (home) ────────────────────────────
-  if (home?.why_us?.cards) {
+  function setText(id, val) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (val) el.textContent = val;
+    else el.style.display = 'none';
+  }
+
+  function observeReveal(container) {
+    container.querySelectorAll('.reveal').forEach(el => window.revealObserver?.observe(el));
+  }
+
+  // ── Section functions ──────────────────────────────────────────
+
+  function applyDataCms(dataMap) {
+    document.querySelectorAll('[data-cms]').forEach(el => {
+      const key    = el.dataset.cms;
+      const source = key.split('.')[0];
+      const subkey = key.split('.').slice(1).join('.');
+      const data   = dataMap[source];
+      if (!data) return;
+      const value = get(data, subkey);
+      if (value === '') el.style.display = 'none';
+      else if (value !== null) patch(el, value);
+    });
+  }
+
+  function applyHomeStats(home) {
+    const el = document.getElementById('hero-stats');
+    if (!el || !home?.hero?.stats) return;
+    el.innerHTML = home.hero.stats.map((s, i) =>
+      (i > 0 ? '<div class="stat-div"></div>' : '') +
+      `<div class="stat">
+        <span class="stat-num">${s.num}</span>
+        <span class="stat-label">${s.label}</span>
+      </div>`
+    ).join('');
+  }
+
+  function applyWhyUs(home) {
     const grid = document.getElementById('why-grid');
-    if (grid) {
-      grid.innerHTML = home.why_us.cards.map((c, i) => `
-        <div class="why-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}">
-          <div class="why-icon"><span style="font-size:1.5rem">${c.icon}</span></div>
-          <h3>${c.title}</h3>
-          <p>${c.desc}</p>
-        </div>
-      `).join('');
-      grid.querySelectorAll('.reveal').forEach(el => window.revealObserver?.observe(el));
-    }
+    if (!grid || !home?.why_us?.cards) return;
+    grid.innerHTML = home.why_us.cards.map((c, i) => `
+      <div class="why-card reveal${i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : ''}">
+        <div class="why-icon"><span style="font-size:1.5rem">${c.icon}</span></div>
+        <h3>${c.title}</h3>
+        <p>${c.desc}</p>
+      </div>
+    `).join('');
+    observeReveal(grid);
   }
 
-  // ── 4. Product grid on home page ─────────────────────────────
-  const homeGrid = document.getElementById('home-product-grid');
-  if (homeGrid) {
-    homeGrid.innerHTML = catOrder.map((id, i) => {
+  function applyHomeProductGrid(catOrder, categories) {
+    const grid = document.getElementById('home-product-grid');
+    if (!grid) return;
+    grid.innerHTML = catOrder.map((id, i) => {
       const c = categories[id];
       if (!c) return '';
       const delay = i % 3 === 1 ? ' delay-1' : i % 3 === 2 ? ' delay-2' : '';
@@ -119,37 +106,34 @@
           </div>
         </a>`;
     }).join('');
-    homeGrid.querySelectorAll('.reveal').forEach(el => window.revealObserver?.observe(el));
+    observeReveal(grid);
   }
 
-  // ── 5. Marquee bar ────────────────────────────────────────────
-  const marqueeEl = document.getElementById('marquee-track');
-  if (marqueeEl) {
-    const names = catOrder.map(id => categories[id]?.name).filter(Boolean);
+  function applyMarquee(catOrder, categories) {
+    const el = document.getElementById('marquee-track');
+    if (!el) return;
+    const names   = catOrder.map(id => categories[id]?.name).filter(Boolean);
     const doubled = [...names, ...names];
-    marqueeEl.innerHTML = doubled.map(n => `<span>${n}</span><span class="dot">◆</span>`).join('');
+    el.innerHTML  = doubled.map(n => `<span>${n}</span><span class="dot">◆</span>`).join('');
   }
 
-  // ── 6. About stats (about page) ──────────────────────────────
-  if (about?.stats) {
+  function applyAboutStats(about) {
     const sg = document.getElementById('about-stats-grid');
-    if (sg) {
-      sg.innerHTML = about.stats.map((s, i) => `
-        <div class="value-item reveal${i > 0 ? ' delay-' + Math.min(i, 3) : ''}">
-          <div class="value-num">${s.num}</div>
-          <div class="value-label">${s.label}</div>
-        </div>
-      `).join('');
-      sg.querySelectorAll('.reveal').forEach(el => window.revealObserver?.observe(el));
-    }
+    if (!sg || !about?.stats) return;
+    sg.innerHTML = about.stats.map((s, i) => `
+      <div class="value-item reveal${i > 0 ? ' delay-' + Math.min(i, 3) : ''}">
+        <div class="value-num">${s.num}</div>
+        <div class="value-label">${s.label}</div>
+      </div>
+    `).join('');
+    observeReveal(sg);
   }
 
-  // ── 7. Certifications (home + about) ─────────────────────────
-  if (contact?.certifications) {
+  function applyCertifications(contact) {
+    if (!contact?.certifications) return;
     document.querySelectorAll('.cert-badges-dynamic').forEach(el => {
       el.innerHTML = contact.certifications.map(c => `<div class="cert-badge">${c}</div>`).join('');
     });
-    // also mini cert chips on contact page
     const chips = document.getElementById('cert-chips');
     if (chips) {
       chips.innerHTML = contact.certifications.map(c =>
@@ -158,47 +142,65 @@
     }
   }
 
-  // ── 8. Footer contact details (all pages) ────────────────────
-  if (contact) {
+  function applyContactDetails(contact) {
+    if (!contact) return;
+
+    // footer contact list — only render non-empty lines
     const fc = document.getElementById('footer-contact-list');
     if (fc) {
-      fc.innerHTML = `
-        <li><span>📧</span> ${contact.email1}</li>
-        <li><span>📞</span> ${contact.phone1}</li>
-        <li><span>📍</span> ${contact.address3}</li>
-      `;
+      fc.innerHTML = [
+        contact.email1   ? `<li><span>📧</span> ${contact.email1}</li>`   : '',
+        contact.phone1   ? `<li><span>📞</span> ${contact.phone1}</li>`   : '',
+        contact.address3 ? `<li><span>📍</span> ${contact.address3}</li>` : '',
+      ].join('');
     }
-    // footer tagline
     const ft = document.getElementById('footer-tagline');
-    if (ft) ft.textContent = contact.footer_text;
+    if (ft && contact.footer_text) ft.textContent = contact.footer_text;
 
     // contact page detail spans
-    const fields = ['email1','email2','phone1','phone2','address1','address2','address3','hours'];
-    fields.forEach(f => {
-      const el = document.getElementById('c-' + f);
-      if (el && contact[f]) el.textContent = contact[f];
+    ['email1','email2','phone1','phone2','address1','address2','address3','hours'].forEach(f => {
+      setText('c-' + f, contact[f]);
     });
 
-    // strip at bottom of contact page
-    const se = document.getElementById('strip-email');
-    const sp = document.getElementById('strip-phone');
-    const sr = document.getElementById('strip-response');
-    const sc = document.getElementById('strip-countries');
-    if (se) { se.textContent = contact.email1; se.href = 'mailto:' + contact.email1; }
-    if (sp) sp.textContent = contact.phone1;
-    if (sr && contact.strip_response_time) sr.textContent = contact.strip_response_time;
-    if (sc && contact.strip_countries) sc.textContent = contact.strip_countries;
+    // hide secondary line wrappers when absent
+    ['email2','phone2','address2','address3'].forEach(f => {
+      if (!contact[f]) hideEl('c-' + f + '-line');
+    });
 
-    // map section
+    // hide entire contact blocks when all their content is absent
+    if (!contact.email1 && !contact.email2)                         hideEl('contact-block-email');
+    if (!contact.phone1 && !contact.phone2)                         hideEl('contact-block-phone');
+    if (!contact.address1 && !contact.address2 && !contact.address3) hideEl('contact-block-address');
+    if (!contact.hours)                                             hideEl('contact-block-hours');
+
+    // strip
+    const se = document.getElementById('strip-email');
+    if (se && contact.email1) { se.textContent = contact.email1; se.href = 'mailto:' + contact.email1; }
+    else hideEl('strip-block-email');
+
+    const sp = document.getElementById('strip-phone');
+    if (sp && contact.phone1) sp.textContent = contact.phone1;
+    else hideEl('strip-block-phone');
+
+    const sr = document.getElementById('strip-response');
+    if (sr && contact.strip_response_time) sr.textContent = contact.strip_response_time;
+    else hideEl('strip-block-response');
+
+    const sc = document.getElementById('strip-countries');
+    if (sc && contact.strip_countries) sc.textContent = contact.strip_countries;
+    else hideEl('strip-block-countries');
+
+    // map
     const ml = document.getElementById('map-link');
     if (ml && contact.maps_url) ml.href = contact.maps_url;
-    const cm = document.getElementById('c-address3-map');
-    if (cm && contact.address3) cm.textContent = contact.address3;
+    else hideEl('map-link');
+    setText('c-address3-map', contact.address3);
   }
 
-  // ── 9. Products page — full dynamic listing ───────────────────
-  const listing = document.getElementById('products-listing');
-  if (listing) {
+  function applyProductsPage(catOrder, categories) {
+    const listing = document.getElementById('products-listing');
+    if (!listing) return;
+
     listing.innerHTML = catOrder.map(id => {
       const c = categories[id];
       if (!c) return '';
@@ -222,42 +224,71 @@
           </div>
         </div>`;
     }).join('');
-    listing.querySelectorAll('.reveal').forEach(el => window.revealObserver?.observe(el));
+    observeReveal(listing);
 
-    // rebuild filter buttons to reflect CMS names
     const filterBar = document.getElementById('filter-bar');
-    if (filterBar) {
-      filterBar.innerHTML =
-        `<button class="filter-btn active" data-target="all">All Products</button>` +
-        catOrder.map(id => {
-          const c = categories[id];
-          return c ? `<button class="filter-btn" data-target="${id}">${c.emoji} ${c.name}</button>` : '';
-        }).join('');
+    if (!filterBar) return;
 
-      filterBar.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          const t = btn.dataset.target;
-          document.querySelectorAll('.category-block').forEach(b => {
-            b.style.display = (t === 'all' || b.id === t) ? '' : 'none';
-          });
-          if (t !== 'all') {
-            setTimeout(() => {
-              const el = document.getElementById(t);
-              if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
-            }, 50);
-          }
+    filterBar.innerHTML =
+      `<button class="filter-btn active" data-target="all">All Products</button>` +
+      catOrder.map(id => {
+        const c = categories[id];
+        return c ? `<button class="filter-btn" data-target="${id}">${c.emoji} ${c.name}</button>` : '';
+      }).join('');
+
+    filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const t = btn.dataset.target;
+        document.querySelectorAll('.category-block').forEach(b => {
+          b.style.display = (t === 'all' || b.id === t) ? '' : 'none';
         });
+        if (t !== 'all') {
+          setTimeout(() => {
+            const el = document.getElementById(t);
+            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+          }, 50);
+        }
       });
-    }
+    });
   }
 
-  // ── 10. Footer year ──────────────────────────────────────────
+  // ── Load all JSON files needed for this page ───────────────────
+  const page = location.pathname.split('/').pop() || 'index.html';
+
+  const [home, about, contact, spices, oilseeds, edibleoils, sugar, rice, raisins, agri, pulses] =
+    await Promise.all([
+      (page === '' || page === 'index.html') ? load('/content/pages/home.json') : Promise.resolve(null),
+      (page === 'about.html' || page === '' || page === 'index.html') ? load('/content/pages/about.json') : Promise.resolve(null),
+      load('/content/pages/contact.json'),
+      load('/content/products/spices.json'),
+      load('/content/products/oilseeds.json'),
+      load('/content/products/edibleoils.json'),
+      load('/content/products/sugar.json'),
+      load('/content/products/rice.json'),
+      load('/content/products/raisins.json'),
+      load('/content/products/agri.json'),
+      load('/content/products/pulses.json'),
+    ]);
+
+  const categories = { spices, oilseeds, edibleoils, sugar, rice, raisins, agri, pulses };
+  const catOrder   = ['spices','oilseeds','edibleoils','sugar','rice','raisins','agri','pulses'];
+
+  // ── Apply all sections ─────────────────────────────────────────
+  applyDataCms({ home, about, contact });
+  applyHomeStats(home);
+  applyWhyUs(home);
+  applyHomeProductGrid(catOrder, categories);
+  applyMarquee(catOrder, categories);
+  applyAboutStats(about);
+  applyCertifications(contact);
+  applyContactDetails(contact);
+  applyProductsPage(catOrder, categories);
+
   const fy = document.getElementById('footer-year');
   if (fy) fy.textContent = new Date().getFullYear();
 
-  // ── Netlify Identity redirect ──────────────────────────────────
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on('init', user => {
       if (!user) window.netlifyIdentity.on('login', () => { document.location.href = '/admin/'; });

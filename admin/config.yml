@@ -256,20 +256,44 @@ collections:
         file: "content/pages/contact.json"
         fields:
           - { label: "Company Name", name: "company_name", widget: "string", default: "TWAM GLOBAL" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "Email (Primary)", name: "email1", widget: "string" }
-          - { label: "Email (Exports)", name: "email2", widget: "string" }
-          - { label: "Phone 1", name: "phone1", widget: "string" }
-          - { label: "Phone 2", name: "phone2", widget: "string" }
-          - { label: "Address Line 1", name: "address1", widget: "string" }
-          - { label: "Address Line 2", name: "address2", widget: "string" }
-          - { label: "City, State, PIN", name: "address3", widget: "string" }
-          - { label: "Business Hours", name: "hours", widget: "string" }
-          - { label: "Founded Year", name: "founded", widget: "string", default: "2010" }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+
+          # ── Hero (leave blank to hide) ──
+          - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
+          - { label: "Hero Tag Label", name: "hero_tag", widget: "string", required: false, hint: "e.g. Get In Touch — leave blank to hide" }
+          - { label: "Hero Heading (HTML ok)", name: "hero_heading", widget: "string", required: false, hint: "e.g. Let's Start a<br><em>Conversation</em>" }
+          - { label: "Hero Sub Text", name: "hero_subtext", widget: "text", required: false }
+
+          # ── Info panel ──
+          - { label: "Info Panel Heading", name: "info_heading", widget: "string", required: false }
+          - { label: "Info Panel Sub Text", name: "info_subtext", widget: "text", required: false }
+
+          # ── Form panel ──
+          - { label: "Form Panel Heading", name: "form_heading", widget: "string", required: false }
+          - { label: "Form Panel Sub Text", name: "form_subtext", widget: "text", required: false }
+
+          # ── Contact details (leave blank = hidden on page) ──
+          - { label: "Email (Primary)", name: "email1", widget: "string", required: false }
+          - { label: "Email (Secondary / Exports)", name: "email2", widget: "string", required: false }
+          - { label: "Phone 1", name: "phone1", widget: "string", required: false }
+          - { label: "Phone 2 / WhatsApp", name: "phone2", widget: "string", required: false }
+          - { label: "Address Line 1 (Company Name)", name: "address1", widget: "string", required: false }
+          - { label: "Address Line 2 (Street)", name: "address2", widget: "string", required: false }
+          - { label: "Address Line 3 (City, PIN)", name: "address3", widget: "string", required: false }
+          - { label: "Business Hours", name: "hours", widget: "string", required: false }
+
+          # ── Map ──
+          - { label: "Map City Heading", name: "city_heading", widget: "string", required: false }
+          - { label: "Google Maps URL", name: "maps_url", widget: "string", required: false, hint: "Leave blank to hide the Open in Maps button" }
+
+          # ── Quick strip ──
+          - { label: "Strip — Response Time", name: "strip_response_time", widget: "string", required: false, hint: "e.g. Within 24 working hours — leave blank to hide" }
+          - { label: "Strip — Countries", name: "strip_countries", widget: "string", required: false, hint: "e.g. 50+ Countries Worldwide — leave blank to hide" }
+
+          - { label: "Founded Year", name: "founded", widget: "string", default: "2010", required: false }
           - label: "Certifications"
             name: "certifications"
             widget: "list"
+            required: false
             field: { label: "Certification Name", name: "cert", widget: "string" }
-          - label: "Footer About Text"
-            name: "footer_text"
-            widget: "text"
+          - { label: "Footer About Text", name: "footer_text", widget: "text", required: false }
