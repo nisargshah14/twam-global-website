@@ -182,8 +182,18 @@
     // strip at bottom of contact page
     const se = document.getElementById('strip-email');
     const sp = document.getElementById('strip-phone');
+    const sr = document.getElementById('strip-response');
+    const sc = document.getElementById('strip-countries');
     if (se) { se.textContent = contact.email1; se.href = 'mailto:' + contact.email1; }
     if (sp) sp.textContent = contact.phone1;
+    if (sr && contact.strip_response_time) sr.textContent = contact.strip_response_time;
+    if (sc && contact.strip_countries) sc.textContent = contact.strip_countries;
+
+    // map section
+    const ml = document.getElementById('map-link');
+    if (ml && contact.maps_url) ml.href = contact.maps_url;
+    const cm = document.getElementById('c-address3-map');
+    if (cm && contact.address3) cm.textContent = contact.address3;
   }
 
   // ── 9. Products page — full dynamic listing ───────────────────
