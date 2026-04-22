@@ -12,9 +12,18 @@
       { "image": "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=1800&q=80", "alt": "Tea Plantation" }
     ],
     "stats": [
-      { "num": "50+", "label": "Countries Served" },
-      { "num": "200+", "label": "Products" },
-      { "num": "15+", "label": "Years Export" }
+      {
+        "num": "50+",
+        "label": "Countries Served"
+      },
+      {
+        "num": "200+",
+        "label": "Products"
+      },
+      {
+        "num": "15+",
+        "label": "Years Export"
+      }
     ]
   },
   "about_preview": {
@@ -30,12 +39,36 @@
   "why_us": {
     "heading": "Excellence at Every Step of the Journey",
     "cards": [
-      { "icon": "✅", "title": "Uncompromised Quality", "desc": "Every shipment undergoes rigorous multi-stage quality inspection — from farm sourcing to final loading — ensuring international-grade standards are consistently met." },
-      { "icon": "🌾", "title": "Direct Farm Sourcing", "desc": "We partner directly with trusted farmers across India's prime agricultural belts, ensuring traceability, freshness, and fair-trade practices at the source." },
-      { "icon": "📦", "title": "Export-Grade Packaging", "desc": "Our packaging solutions are tailored for international shipping — moisture-proof, tamper-evident, and compliant with destination country regulations." },
-      { "icon": "🌍", "title": "Global Reach", "desc": "Established supply chains to 50+ countries across Asia, Europe, Middle East, and Africa — with experienced logistics coordination and on-time delivery records." },
-      { "icon": "🏅", "title": "Certifications & Compliance", "desc": "Fully certified with APEDA, FSSAI, ISO, and Phytosanitary standards. We handle all documentation, ensuring smooth customs clearance at every destination port." },
-      { "icon": "🤝", "title": "Dedicated Account Support", "desc": "Each client gets a dedicated relationship manager — ensuring prompt communication, custom pricing, flexible MOQ, and personalised end-to-end service." }
+      {
+        "icon": "✅",
+        "title": "Uncompromised Quality",
+        "desc": "Every shipment undergoes rigorous multi-stage quality inspection — from farm sourcing to final loading — ensuring international-grade standards are consistently met."
+      },
+      {
+        "icon": "🌾",
+        "title": "Direct Farm Sourcing",
+        "desc": "We partner directly with trusted farmers across India's prime agricultural belts, ensuring traceability, freshness, and fair-trade practices at the source."
+      },
+      {
+        "icon": "📦",
+        "title": "Export-Grade Packaging",
+        "desc": "Our packaging solutions are tailored for international shipping — moisture-proof, tamper-evident, and compliant with destination country regulations."
+      },
+      {
+        "icon": "🌍",
+        "title": "Global Reach",
+        "desc": "Established supply chains to 50+ countries across Asia, Europe, Middle East, and Africa — with experienced logistics coordination and on-time delivery records."
+      },
+      {
+        "icon": "🏅",
+        "title": "Certifications & Compliance",
+        "desc": "Fully certified with APEDA, FSSAI, ISO, and Phytosanitary standards. We handle all documentation, ensuring smooth customs clearance at every destination port."
+      },
+      {
+        "icon": "🤝",
+        "title": "Dedicated Account Support",
+        "desc": "Each client gets a dedicated relationship manager — ensuring prompt communication, custom pricing, flexible MOQ, and personalised end-to-end service."
+      }
     ]
   },
   "cta": {
