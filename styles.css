@@ -262,6 +262,12 @@ ul { list-style: none; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(11,61,46,0.08); }
 .form-group textarea { resize: vertical; min-height: 120px; }
 .form-note { font-size: 0.8rem; color: var(--text-light); margin-top: 16px; text-align: center; }
+.form-group.error input, .form-group.error select, .form-group.error textarea { border-color: #dc2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.08); }
+.form-group.success input, .form-group.success select, .form-group.success textarea { border-color: var(--green-light); }
+.field-error { font-size: 0.75rem; color: #dc2626; font-weight: 500; margin-top: -4px; }
+.form-success-banner { background: #f0fdf4; border: 1.5px solid #22c55e; border-radius: 8px; padding: 18px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.form-success-banner svg { flex-shrink: 0; }
+.form-success-banner p { font-size: 0.9rem; color: #15803d; font-weight: 500; }
 
 /* ---- RESPONSIVE ---- */
 @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } .products-mini-grid { grid-template-columns: repeat(4, 1fr); } .values-grid { grid-template-columns: repeat(2, 1fr); } }
