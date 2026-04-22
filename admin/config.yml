@@ -28,7 +28,15 @@ collections:
               - { label: "Sub Headline", name: "subheadline", widget: "string", default: "Delivering nature's finest from farm to world" }
               - { label: "Badge Text", name: "badge", widget: "string", default: "Trusted Globally Since 2010" }
               - { label: "CTA Button Text", name: "cta_text", widget: "string", default: "Explore Products" }
-              - { label: "Hero Background Image", name: "hero_image", widget: "image" }
+              - { label: "Hero Background Image (fallback)", name: "hero_image", widget: "image", required: false, hint: "Used only if no carousel slides are added below." }
+              - label: "Hero Carousel Slides"
+                name: "carousel_slides"
+                widget: "list"
+                label_singular: "Slide"
+                hint: "Upload images for the hero carousel. Add at least 1. Slides auto-play every 5 seconds."
+                fields:
+                  - { label: "Slide Image", name: "image", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string", default: "TWAM Global", required: false }
               - label: "Stats"
                 name: "stats"
                 widget: "list"

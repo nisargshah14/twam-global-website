@@ -38,9 +38,16 @@
     <div class="hero-grain"></div>
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
-    <img data-cms="home.hero.hero_image"
-         src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=80"
-         class="hero-img" alt="Agricultural fields">
+    <!-- Carousel slides — populated by cms-data.js from home.json carousel_slides -->
+    <div class="hero-carousel" id="hero-carousel">
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1800&q=80')"></div>
+    </div>
+  </div>
+  <!-- Carousel controls -->
+  <button class="hero-arr hero-prev" id="hero-prev" aria-label="Previous slide">&#8592;</button>
+  <button class="hero-arr hero-next" id="hero-next" aria-label="Next slide">&#8594;</button>
+  <div class="hero-dots" id="hero-dots">
+    <button class="hero-dot active" data-idx="0" aria-label="Slide 1"></button>
   </div>
   <div class="hero-content">
     <div class="hero-badge reveal" data-cms="home.hero.badge">Trusted Globally Since 2010</div>

@@ -61,6 +61,62 @@
     });
   }
 
+  function applyHeroCarousel(home) {
+    const container = document.getElementById('hero-carousel');
+    const dotsEl    = document.getElementById('hero-dots');
+    const prevBtn   = document.getElementById('hero-prev');
+    const nextBtn   = document.getElementById('hero-next');
+    if (!container) return;
+
+    const slides  = home?.hero?.carousel_slides;
+    const fallback = home?.hero?.hero_image;
+    const images  = (slides && slides.length > 0)
+      ? slides.map(s => ({ src: s.image, alt: s.alt || 'TWAM Global' })).filter(s => s.src)
+      : (fallback ? [{ src: fallback, alt: 'TWAM Global' }] : []);
+
+    if (images.length === 0) return;
+
+    container.innerHTML = images.map((img, i) =>
+      `<div class="hero-slide${i === 0 ? ' active' : ''}" style="background-image:url('${img.src}')" aria-label="${img.alt}"></div>`
+    ).join('');
+
+    if (dotsEl) {
+      dotsEl.innerHTML = images.map((_, i) =>
+        `<button class="hero-dot${i === 0 ? ' active' : ''}" data-idx="${i}" aria-label="Slide ${i + 1}"></button>`
+      ).join('');
+    }
+
+    if (images.length <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+      if (dotsEl)  dotsEl.style.display  = 'none';
+      return;
+    }
+
+    let current = 0;
+    let timer;
+
+    function goTo(idx) {
+      const sl = container.querySelectorAll('.hero-slide');
+      const dt = dotsEl?.querySelectorAll('.hero-dot');
+      current  = (idx + sl.length) % sl.length;
+      sl.forEach(s => s.classList.remove('active'));
+      dt?.forEach(d => d.classList.remove('active'));
+      sl[current]?.classList.add('active');
+      dt?.[current]?.classList.add('active');
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    dotsEl?.querySelectorAll('.hero-dot').forEach(d => {
+      d.addEventListener('click', () => goTo(+d.dataset.idx));
+    });
+
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
   function applyHomeStats(home) {
     const el = document.getElementById('hero-stats');
     if (!el || !home?.hero?.stats) return;
@@ -277,6 +333,7 @@
 
   // ── Apply all sections ─────────────────────────────────────────
   applyDataCms({ home, about, contact });
+  applyHeroCarousel(home);
   applyHomeStats(home);
   applyWhyUs(home);
   applyHomeProductGrid(catOrder, categories);
