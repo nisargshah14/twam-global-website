@@ -6,9 +6,9 @@
     "cta_text": "Explore Products",
     "hero_image": "images/uploads/goat_milk_powder_202604230000.jpeg",
     "carousel_slides": [
-      { "image": "images/uploads/goat_milk_powder_202604230000.jpeg", "alt": "Goat Milk Powder" },
-      { "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1800&q=80", "alt": "Premium Spices Export" },
-      { "image": "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=1800&q=80", "alt": "Tea Plantation" }
+      { "image": "images/uploads/banner/goat_milk_powder_202604230000.jpeg", "alt": "Goat Milk Powder" },
+      { "image": "images/uploads/banner/photo-1596040033229-a9821ebd058d.jpg", "alt": "Premium Spices Export" },
+      { "image": "images/uploads/banner/sugar_202604231322.jpeg", "alt": "Sugar Export" }
     ],
     "stats": [
       {
