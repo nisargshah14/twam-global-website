@@ -4,7 +4,6 @@ import {
   inject,
   signal,
   computed,
-  OnDestroy,
   Input,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
@@ -24,7 +23,7 @@ import { AdminContentService } from '../../services/admin-content.service';
     },
   ],
 })
-export class MediaPickerComponent implements ControlValueAccessor, OnDestroy {
+export class MediaPickerComponent implements ControlValueAccessor {
   @Input() label = 'Image';
 
   private contentService = inject(AdminContentService);
@@ -34,6 +33,9 @@ export class MediaPickerComponent implements ControlValueAccessor, OnDestroy {
   tab = signal<'library' | 'external'>('library');
   images = signal<Record<string, string[]>>({});
   loading = signal(false);
+  uploading = signal(false);
+  uploadError = signal('');
+  uploadFolder = signal<'banner' | 'product'>('product');
   externalInput = signal('');
   disabled = signal(false);
 
@@ -57,11 +59,7 @@ export class MediaPickerComponent implements ControlValueAccessor, OnDestroy {
   toggle(): void {
     if (this.disabled()) return;
     if (!this.open()) {
-      this.loading.set(true);
-      this.contentService.listImages().subscribe({
-        next: (data) => { this.images.set(data); this.loading.set(false); },
-        error: () => this.loading.set(false),
-      });
+      this.refreshImages();
     }
     this.open.update((v) => !v);
     this.onTouched();
@@ -87,6 +85,40 @@ export class MediaPickerComponent implements ControlValueAccessor, OnDestroy {
     this.open.set(false);
   }
 
+  onFileSelect(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    input.value = ''; // reset so the same file can be picked again
+    if (!file) return;
+
+    this.uploading.set(true);
+    this.uploadError.set('');
+
+    this.contentService.uploadImage(file, this.uploadFolder()).subscribe({
+      next: ({ path }) => {
+        this.uploading.set(false);
+        // Select immediately so the user sees it right away
+        this.select(path);
+        // Refresh list silently so future opens include the new image
+        this.contentService.listImages().subscribe({
+          next: (data) => this.images.set(data),
+        });
+      },
+      error: () => {
+        this.uploading.set(false);
+        this.uploadError.set('Upload failed — check file type (jpg/png/webp) and size (max 5 MB).');
+      },
+    });
+  }
+
+  private refreshImages(): void {
+    this.loading.set(true);
+    this.contentService.listImages().subscribe({
+      next: (data) => { this.images.set(data); this.loading.set(false); },
+      error: () => this.loading.set(false),
+    });
+  }
+
   filename(path: string): string {
     return path.split('/').pop() ?? path;
   }
@@ -94,6 +126,4 @@ export class MediaPickerComponent implements ControlValueAccessor, OnDestroy {
   shortPath(path: string): string {
     return path.length > 45 ? '…' + path.slice(-42) : path;
   }
-
-  ngOnDestroy(): void {}
 }
