@@ -1,0 +1,114 @@
+@if (about()) {
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="page-hero-img" [src]="about()!.hero_image" alt="About TWAM GLOBAL" />
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <span>About</span>
+      </div>
+      <h1 class="page-title">{{ about()!.heading }}</h1>
+      <p>{{ about()!.subtext }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="about-intro-grid">
+      <div class="about-intro-text reveal">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title">{{ about()!.intro.heading }}</h2>
+        <p>{{ about()!.intro.para1 }}</p>
+        <p>{{ about()!.intro.para2 }}</p>
+        <p>{{ about()!.intro.para3 }}</p>
+        <a routerLink="/contact" class="btn btn-green mt-2">Work With Us →</a>
+      </div>
+      <div class="about-intro-img reveal delay-1">
+        <img [src]="about()!.intro.image" alt="TWAM GLOBAL operations" />
+        <div class="floating-stat">
+          <span class="badge-num">15+</span>
+          <span class="badge-text">Years of<br>Excellence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section bg-off">
+  <div class="container">
+    <div class="values-grid">
+      @for (stat of about()!.stats; track stat.label; let i = $index) {
+        <div class="value-item reveal" [class]="'delay-' + (i + 1)">
+          <div class="value-num">{{ stat.num }}</div>
+          <div class="value-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Purpose</div>
+      <h2 class="section-title">Vision &amp; <em>Mission</em></h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card reveal">
+        <h3><span>👁</span> {{ about()!.vision.heading }}</h3>
+        <p>{{ about()!.vision.content }}</p>
+      </div>
+      <div class="vm-card reveal delay-1">
+        <h3><span>🎯</span> {{ about()!.mission.heading }}</h3>
+        <p>{{ about()!.mission.content }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section bg-dark">
+  <div class="container">
+    <div class="cert-inner">
+      <div class="cert-text reveal">
+        <div class="section-tag light">Compliance</div>
+        <h2 class="section-title light">Certified for <em>Global Trade</em></h2>
+        <p class="light-text">Our certifications guarantee that every product we export meets the highest international food safety and quality standards.</p>
+      </div>
+      <div class="cert-badges reveal delay-1">
+        <div class="cert-badge">APEDA</div>
+        <div class="cert-badge">FSSAI</div>
+        <div class="cert-badge">ISO 9001</div>
+        <div class="cert-badge">HACCP</div>
+        <div class="cert-badge">Organic</div>
+        <div class="cert-badge">Phytosanitary</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="cta-content">
+        <h2 class="section-title">Ready to Partner <em>With Us?</em></h2>
+        <p>Reach out to our export team for pricing, samples, and custom sourcing solutions tailored to your market.</p>
+        <div class="cta-actions">
+          <a routerLink="/contact" class="btn btn-gold">Get in Touch →</a>
+          <a routerLink="/products" class="btn btn-ghost">View Products</a>
+        </div>
+      </div>
+      <div class="cta-image">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&q=80" alt="Export operations" />
+      </div>
+    </div>
+  </div>
+</section>
+}

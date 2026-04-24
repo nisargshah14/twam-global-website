@@ -1,0 +1,13 @@
+{
+  "name": "Edible Oils",
+  "emoji": "🫙",
+  "cover_image": "assets/images/uploads/product/Edible oils.jpg",
+  "description": "Groundnut Oil, Sesame Oil, Castor Oil",
+  "products": [
+    { "name": "Groundnut Oil", "sublabel": "Refined & expeller pressed", "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80" },
+    { "name": "Sesame Oil", "sublabel": "Cold-pressed, natural grade", "image": "https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=400&q=80" },
+    { "name": "Mustard Oil", "sublabel": "Kacchi Ghani, pungent grade", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" },
+    { "name": "Castor Oil", "sublabel": "Industrial & food grade", "image": "https://images.unsplash.com/photo-1525385133512-2f3bdd039054?w=400&q=80" },
+    { "name": "Coconut Oil", "sublabel": "Virgin & refined grades", "image": "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=400&q=80" }
+  ]
+}

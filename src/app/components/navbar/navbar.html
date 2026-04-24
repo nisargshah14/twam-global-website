@@ -1,0 +1,23 @@
+<nav id="navbar" [class.scrolled]="scrolled()">
+  <div class="nav-inner">
+    <a class="logo" routerLink="/" (click)="closeMenu()">
+      <div class="logo-mark">TG</div>
+      <span class="logo-text">TWAM <em>GLOBAL</em></span>
+    </a>
+
+    <div class="nav-links" [class.open]="menuOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      <a routerLink="/products" routerLinkActive="active" (click)="closeMenu()">Products</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+    </div>
+
+    <a routerLink="/contact" class="nav-cta" (click)="closeMenu()">Get a Quote</a>
+
+    <button class="nav-toggle" (click)="toggleMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>

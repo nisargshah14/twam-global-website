@@ -1,0 +1,71 @@
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&q=80" alt="Products" />
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <span>Products</span>
+      </div>
+      <h1 class="page-title">Premium Products, <em>Global Standards</em></h1>
+      <p>Explore our complete portfolio of export-grade agricultural products — carefully sourced from India's finest growing regions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS LISTING -->
+<section class="section">
+  <div class="container">
+    <!-- Filter Bar -->
+    @if (categories().length) {
+    <div class="products-filter">
+      <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">All Products</button>
+      @for (cat of categories(); track cat.name; let i = $index) {
+        <button class="filter-btn" [class.active]="activeFilter() === categorySlug(i)" (click)="setFilter(categorySlug(i))">
+          {{ cat.emoji }} {{ cat.name }}
+        </button>
+      }
+    </div>
+
+    <!-- Category Blocks -->
+    @for (cat of categories(); track cat.name; let i = $index) {
+      @if (isVisible(i)) {
+      <div class="category-block reveal" [id]="'cat-' + categorySlug(i)">
+        <div class="category-header">
+          <h2><em>{{ cat.emoji }}</em> {{ cat.name }}</h2>
+          <span class="category-count">{{ cat.products.length }} Products</span>
+        </div>
+        <div class="products-mini-grid">
+          @for (product of cat.products; track product.name) {
+            <div class="product-mini-card">
+              <div class="mini-card-img">
+                <img [src]="product.image || cat.cover_image" [alt]="product.name" />
+              </div>
+              <div class="mini-card-body">
+                <h4>{{ product.name }}</h4>
+                <p>{{ product.sublabel }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      }
+    }
+    }
+
+    <!-- CTA -->
+    <div class="cta-box reveal">
+      <div class="cta-content">
+        <h2 class="section-title">Looking for a <em>Custom Order?</em></h2>
+        <p>We offer flexible MOQ, custom packaging, and tailored sourcing solutions for importers and wholesalers worldwide.</p>
+        <div class="cta-actions">
+          <a routerLink="/contact" class="btn btn-gold">Request a Quote →</a>
+        </div>
+      </div>
+      <div class="cta-image">
+        <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&q=80" alt="Export" />
+      </div>
+    </div>
+  </div>
+</section>
