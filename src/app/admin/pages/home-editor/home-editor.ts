@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MediaPickerComponent } from '../../components/media-picker/media-picker';
 import { AdminContentService } from '../../services/admin-content.service';
 import { HasUnsavedChanges } from '../../guards/unsaved-changes.guard';
 import { HomeContent } from '../../../models/content.model';
@@ -7,7 +8,7 @@ import { HomeContent } from '../../../models/content.model';
 @Component({
   selector: 'app-home-editor',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MediaPickerComponent],
   templateUrl: './home-editor.html',
   styleUrl: './home-editor.scss',
 })

@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormArray, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MediaPickerComponent } from '../../components/media-picker/media-picker';
 import { AdminContentService } from '../../services/admin-content.service';
 import { HasUnsavedChanges } from '../../guards/unsaved-changes.guard';
 import { ContactContent } from '../../../models/content.model';
@@ -7,7 +8,7 @@ import { ContactContent } from '../../../models/content.model';
 @Component({
   selector: 'app-contact-editor',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MediaPickerComponent],
   templateUrl: './contact-editor.html',
   styleUrl: '../shared-editor.scss',
 })

@@ -32,8 +32,8 @@
           <input type="text" formControlName="cta_text" />
         </div>
         <div class="field full">
-          <label>Hero image path</label>
-          <input type="text" formControlName="hero_image" />
+          <label>Hero image</label>
+          <app-media-picker formControlName="hero_image" />
         </div>
       </div>
 
@@ -45,9 +45,9 @@
         </div>
         @for (slide of carouselSlides.controls; track $index) {
           <div class="array-row" [formGroup]="slideGroup($index)">
-            <div class="field flex1">
-              <label>Image path</label>
-              <input type="text" formControlName="image" />
+            <div class="field flex2">
+              <label>Image</label>
+              <app-media-picker formControlName="image" />
             </div>
             <div class="field flex1">
               <label>Alt text</label>
@@ -88,10 +88,16 @@
         <div class="field"><label>Heading 2</label><input type="text" formControlName="heading2" /></div>
         <div class="field full"><label>Paragraph 1</label><textarea rows="3" formControlName="para1"></textarea></div>
         <div class="field full"><label>Paragraph 2</label><textarea rows="3" formControlName="para2"></textarea></div>
-        <div class="field"><label>Main image path</label><input type="text" formControlName="image_main" /></div>
-        <div class="field"><label>Accent image path</label><input type="text" formControlName="image_accent" /></div>
         <div class="field"><label>Badge number</label><input type="text" formControlName="badge_num" /></div>
         <div class="field"><label>Badge label</label><input type="text" formControlName="badge_label" /></div>
+        <div class="field full">
+          <label>Main image</label>
+          <app-media-picker formControlName="image_main" />
+        </div>
+        <div class="field full">
+          <label>Accent image</label>
+          <app-media-picker formControlName="image_accent" />
+        </div>
       </div>
     </section>
 
@@ -108,7 +114,7 @@
           <button type="button" class="btn-add" (click)="addCard()">+ Add card</button>
         </div>
         @for (card of whyCards.controls; track $index) {
-          <div class="array-row col3" [formGroup]="cardGroup($index)">
+          <div class="array-row" [formGroup]="cardGroup($index)">
             <div class="field flex1"><label>Icon (emoji)</label><input type="text" formControlName="icon" /></div>
             <div class="field flex2"><label>Title</label><input type="text" formControlName="title" /></div>
             <div class="field flex3"><label>Description</label><input type="text" formControlName="desc" /></div>
@@ -124,7 +130,10 @@
       <div class="fields-grid">
         <div class="field"><label>Heading</label><input type="text" formControlName="heading" /></div>
         <div class="field"><label>Subtext</label><input type="text" formControlName="subtext" /></div>
-        <div class="field full"><label>Image path</label><input type="text" formControlName="image" /></div>
+        <div class="field full">
+          <label>Background image</label>
+          <app-media-picker formControlName="image" />
+        </div>
       </div>
     </section>
 

@@ -16,7 +16,7 @@
       <div class="fields-grid">
         <div class="field"><label>Name</label><input type="text" formControlName="name" /></div>
         <div class="field"><label>Emoji</label><input type="text" formControlName="emoji" /></div>
-        <div class="field full"><label>Cover image path</label><input type="text" formControlName="cover_image" /></div>
+        <div class="field full"><label>Cover image</label><app-media-picker formControlName="cover_image" /></div>
         <div class="field full"><label>Description</label><textarea rows="3" formControlName="description"></textarea></div>
       </div>
     </section>
@@ -31,7 +31,7 @@
         <div class="array-row" [formGroup]="productGroup($index)">
           <div class="field flex2"><label>Name</label><input type="text" formControlName="name" /></div>
           <div class="field flex1"><label>Sublabel</label><input type="text" formControlName="sublabel" /></div>
-          <div class="field flex2"><label>Image path</label><input type="text" formControlName="image" /></div>
+          <div class="field flex2"><label>Image</label><app-media-picker formControlName="image" /></div>
           <button type="button" class="btn-remove" (click)="removeProduct($index)">✕</button>
         </div>
       }

@@ -41,7 +41,7 @@ export const ADMIN_ROUTES: Routes = [
         canDeactivate: [unsavedChangesGuard],
       },
       {
-        path: 'images',
+        path: 'media',
         loadComponent: () => import('./pages/image-manager/image-manager').then((m) => m.ImageManagerComponent),
       },
     ],

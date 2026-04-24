@@ -1,0 +1,216 @@
+.mp-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 0.2s;
+
+  &.mp-open { border-color: #c9a227; }
+  &.mp-disabled { opacity: 0.5; pointer-events: none; }
+}
+
+// --- Collapsed row ---
+
+.mp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  min-height: 44px;
+}
+
+.mp-thumb {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg { width: 18px; height: 18px; color: rgba(255, 255, 255, 0.25); }
+  }
+}
+
+.mp-path {
+  flex: 1;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mp-actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.mp-btn {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background 0.15s, opacity 0.15s;
+
+  &--pick {
+    background: rgba(201, 162, 39, 0.12);
+    border-color: rgba(201, 162, 39, 0.4);
+    color: #c9a227;
+    &:hover { background: rgba(201, 162, 39, 0.22); }
+  }
+
+  &--clear {
+    background: rgba(220, 53, 69, 0.08);
+    border-color: rgba(220, 53, 69, 0.3);
+    color: #f98f9a;
+    &:hover { background: rgba(220, 53, 69, 0.18); }
+  }
+
+  &--apply {
+    background: rgba(201, 162, 39, 0.12);
+    border-color: rgba(201, 162, 39, 0.4);
+    color: #c9a227;
+    padding: 0.4rem 0.8rem;
+    white-space: nowrap;
+    &:hover { background: rgba(201, 162, 39, 0.22); }
+  }
+}
+
+// --- Expanded panel ---
+
+.mp-panel {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.75rem;
+}
+
+.mp-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.mp-tab {
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: none;
+  color: rgba(255, 255, 255, 0.45);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+  &.active {
+    background: rgba(201, 162, 39, 0.14);
+    border-color: rgba(201, 162, 39, 0.45);
+    color: #c9a227;
+  }
+
+  &:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+}
+
+.mp-empty {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  padding: 0.5rem 0;
+}
+
+// --- Library grid ---
+
+.mp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 0.5rem;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 2px;
+
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
+  &::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 2px; }
+}
+
+.mp-tile {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0;
+  transition: border-color 0.15s;
+  text-align: left;
+
+  &:hover { border-color: rgba(201, 162, 39, 0.4); }
+  &--selected { border-color: #c9a227; }
+
+  img {
+    width: 100%;
+    height: 64px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.mp-tile-name {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 2px 4px 0;
+  display: block;
+}
+
+.mp-tile-folder {
+  font-size: 0.6rem;
+  color: rgba(201, 162, 39, 0.7);
+  padding: 1px 4px 3px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+// --- External URL tab ---
+
+.mp-external { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.mp-ext-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mp-ext-input {
+  flex: 1;
+  padding: 0.45rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  font-family: inherit;
+  outline: none;
+  &:focus { border-color: #c9a227; }
+}
+
+.mp-ext-preview {
+  img {
+    max-width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.04);
+  }
+}

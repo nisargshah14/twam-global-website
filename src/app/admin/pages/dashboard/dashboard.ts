@@ -14,6 +14,6 @@ export class DashboardComponent {
     { label: 'About Page', link: '../about', icon: 'info', desc: 'Intro, stats, vision & mission' },
     { label: 'Contact Page', link: '../contact', icon: 'mail', desc: 'Contact details, certifications' },
     { label: 'Products', link: '../products', icon: 'box', desc: '8 product categories' },
-    { label: 'Image Manager', link: '../images', icon: 'image', desc: 'Upload & manage banner/product images' },
+    { label: 'Media Library', link: '../media', icon: 'image', desc: 'Upload & manage banner/product images' },
   ];
 }
