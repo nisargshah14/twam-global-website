@@ -20,6 +20,7 @@ export interface HomeContent {
     subheadline: string;
     badge: string;
     cta_text: string;
+    hero_image?: string;
     carousel_slides: CarouselSlide[];
     stats: Stat[];
   };

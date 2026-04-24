@@ -34,7 +34,9 @@
                 "output": "assets"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -67,7 +69,8 @@
               "buildTarget": "twam-global:build:production"
             },
             "development": {
-              "buildTarget": "twam-global:build:development"
+              "buildTarget": "twam-global:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

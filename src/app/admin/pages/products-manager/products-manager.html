@@ -1,0 +1,18 @@
+<div class="editor">
+  <h1 class="page-title">Products</h1>
+  <p class="page-sub">Select a category to edit its content.</p>
+
+  @if (loadError()) { <div class="alert-error">{{ loadError() }}</div> }
+
+  <div class="card-grid">
+    @for (p of products(); track p.slug) {
+      <a [routerLink]="p.slug" class="product-card">
+        <div class="product-emoji">{{ p.emoji }}</div>
+        <div class="product-info">
+          <span class="product-name">{{ p.name }}</span>
+          <span class="product-count">{{ p.products.length }} items</span>
+        </div>
+      </a>
+    }
+  </div>
+</div>

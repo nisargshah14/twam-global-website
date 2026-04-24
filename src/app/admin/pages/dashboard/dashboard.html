@@ -1,0 +1,13 @@
+<div class="dashboard">
+  <h1 class="page-title">Dashboard</h1>
+  <p class="page-sub">Select a section to edit content.</p>
+
+  <div class="card-grid">
+    @for (s of sections; track s.label) {
+      <a [routerLink]="s.link" class="dash-card">
+        <span class="dash-card-label">{{ s.label }}</span>
+        <span class="dash-card-desc">{{ s.desc }}</span>
+      </a>
+    }
+  </div>
+</div>

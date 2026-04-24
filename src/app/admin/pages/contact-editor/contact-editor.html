@@ -1,0 +1,80 @@
+<div class="editor">
+  <div class="editor-header">
+    <h1 class="page-title">Contact Page</h1>
+    <button class="btn-save" (click)="save()" [disabled]="saving() || form.invalid">
+      {{ saving() ? 'Saving…' : 'Save changes' }}
+    </button>
+  </div>
+
+  @if (loadError()) { <div class="alert-error">{{ loadError() }}</div> }
+  @if (saveSuccess()) { <div class="alert-success">Saved successfully!</div> }
+
+  <form [formGroup]="form">
+
+    <section class="editor-section">
+      <h2 class="section-title">Company Info</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Company name</label><input type="text" formControlName="company_name" /></div>
+        <div class="field"><label>Tagline</label><input type="text" formControlName="tagline" /></div>
+        <div class="field"><label>Founded</label><input type="text" formControlName="founded" /></div>
+        <div class="field"><label>Email 1</label><input type="text" formControlName="email1" /></div>
+        <div class="field"><label>Email 2</label><input type="text" formControlName="email2" /></div>
+        <div class="field"><label>Phone 1</label><input type="text" formControlName="phone1" /></div>
+        <div class="field"><label>Phone 2</label><input type="text" formControlName="phone2" /></div>
+        <div class="field full"><label>Address line 1</label><input type="text" formControlName="address1" /></div>
+        <div class="field full"><label>Address line 2</label><input type="text" formControlName="address2" /></div>
+        <div class="field full"><label>Address line 3</label><input type="text" formControlName="address3" /></div>
+        <div class="field"><label>Hours</label><input type="text" formControlName="hours" /></div>
+        <div class="field full"><label>Google Maps embed URL</label><input type="text" formControlName="maps_url" /></div>
+      </div>
+    </section>
+
+    <section class="editor-section">
+      <h2 class="section-title">Hero</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Heading</label><input type="text" formControlName="hero_heading" /></div>
+        <div class="field"><label>Tag</label><input type="text" formControlName="hero_tag" /></div>
+        <div class="field full"><label>Subtext</label><textarea rows="2" formControlName="hero_subtext"></textarea></div>
+        <div class="field full"><label>Hero image path</label><input type="text" formControlName="hero_image" /></div>
+      </div>
+    </section>
+
+    <section class="editor-section">
+      <h2 class="section-title">Info & Form Copy</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Info heading</label><input type="text" formControlName="info_heading" /></div>
+        <div class="field"><label>Info subtext</label><input type="text" formControlName="info_subtext" /></div>
+        <div class="field"><label>Form heading</label><input type="text" formControlName="form_heading" /></div>
+        <div class="field"><label>Form subtext</label><input type="text" formControlName="form_subtext" /></div>
+      </div>
+    </section>
+
+    <section class="editor-section">
+      <h2 class="section-title">Certifications</h2>
+      <div class="array-header">
+        <h3></h3>
+        <button type="button" class="btn-add" (click)="addCert()">+ Add certification</button>
+      </div>
+      @for (cert of certs.controls; track $index) {
+        <div class="array-row">
+          <div class="field flex1">
+            <label>Certification {{ $index + 1 }}</label>
+            <input type="text" [formControl]="$any(cert)" />
+          </div>
+          <button type="button" class="btn-remove" (click)="removeCert($index)">✕</button>
+        </div>
+      }
+    </section>
+
+    <section class="editor-section">
+      <h2 class="section-title">Strip / Footer</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Response time</label><input type="text" formControlName="strip_response_time" /></div>
+        <div class="field"><label>Countries</label><input type="text" formControlName="strip_countries" /></div>
+        <div class="field full"><label>City heading</label><input type="text" formControlName="city_heading" /></div>
+        <div class="field full"><label>Footer text</label><textarea rows="2" formControlName="footer_text"></textarea></div>
+      </div>
+    </section>
+
+  </form>
+</div>

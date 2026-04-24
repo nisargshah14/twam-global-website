@@ -1,0 +1,44 @@
+<div class="editor">
+  <h1 class="page-title">Image Manager</h1>
+
+  @if (loadError()) { <div class="alert-error">{{ loadError() }}</div> }
+  @if (copyFeedback()) { <div class="alert-success">Copied: {{ copyFeedback() }}</div> }
+
+  <section class="editor-section">
+    <h2 class="section-title">Upload Image</h2>
+    <div class="upload-row">
+      <select (change)="uploadFolder.set($any($event.target).value)">
+        <option value="product">product</option>
+        <option value="banner">banner</option>
+      </select>
+      <label class="btn-upload">
+        {{ uploading() ? 'Uploading…' : 'Choose file & upload' }}
+        <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onFileSelect($event)" [disabled]="uploading()" hidden />
+      </label>
+    </div>
+  </section>
+
+  @for (folder of folders; track folder) {
+    <section class="editor-section">
+      <h2 class="section-title">{{ folder }}</h2>
+      @if (!images()[folder]?.length) {
+        <p class="empty-note">No images yet.</p>
+      } @else {
+        <div class="image-grid">
+          @for (path of images()[folder]; track path) {
+            <div class="image-tile">
+              <img [src]="path" [alt]="filename(path)" loading="lazy" />
+              <div class="image-tile-footer">
+                <span class="image-name" [title]="path">{{ filename(path) }}</span>
+                <div class="image-actions">
+                  <button type="button" class="btn-icon" title="Copy path" (click)="copyPath(path)">📋</button>
+                  <button type="button" class="btn-icon danger" title="Delete" (click)="delete(folder, path)">🗑</button>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </section>
+  }
+</div>

@@ -1,0 +1,66 @@
+<div class="editor">
+  <div class="editor-header">
+    <h1 class="page-title">About Page</h1>
+    <button class="btn-save" (click)="save()" [disabled]="saving() || form.invalid">
+      {{ saving() ? 'Saving…' : 'Save changes' }}
+    </button>
+  </div>
+
+  @if (loadError()) { <div class="alert-error">{{ loadError() }}</div> }
+  @if (saveSuccess()) { <div class="alert-success">Saved successfully!</div> }
+
+  <form [formGroup]="form">
+
+    <section class="editor-section">
+      <h2 class="section-title">Hero</h2>
+      <div class="fields-grid">
+        <div class="field full"><label>Heading</label><input type="text" formControlName="heading" /></div>
+        <div class="field full"><label>Subtext</label><textarea rows="2" formControlName="subtext"></textarea></div>
+        <div class="field full"><label>Hero image path</label><input type="text" formControlName="hero_image" /></div>
+      </div>
+    </section>
+
+    <section class="editor-section" formGroupName="intro">
+      <h2 class="section-title">Introduction</h2>
+      <div class="fields-grid">
+        <div class="field full"><label>Heading</label><input type="text" formControlName="heading" /></div>
+        <div class="field full"><label>Paragraph 1</label><textarea rows="3" formControlName="para1"></textarea></div>
+        <div class="field full"><label>Paragraph 2</label><textarea rows="3" formControlName="para2"></textarea></div>
+        <div class="field full"><label>Paragraph 3</label><textarea rows="3" formControlName="para3"></textarea></div>
+        <div class="field full"><label>Image path</label><input type="text" formControlName="image" /></div>
+      </div>
+    </section>
+
+    <section class="editor-section">
+      <h2 class="section-title">Stats</h2>
+      <div class="array-header">
+        <h3></h3>
+        <button type="button" class="btn-add" (click)="addStat()">+ Add stat</button>
+      </div>
+      @for (stat of statsArray.controls; track $index) {
+        <div class="array-row" [formGroup]="statGroup($index)">
+          <div class="field flex1"><label>Number</label><input type="text" formControlName="num" /></div>
+          <div class="field flex1"><label>Label</label><input type="text" formControlName="label" /></div>
+          <button type="button" class="btn-remove" (click)="removeStat($index)">✕</button>
+        </div>
+      }
+    </section>
+
+    <section class="editor-section" formGroupName="vision">
+      <h2 class="section-title">Vision</h2>
+      <div class="fields-grid">
+        <div class="field full"><label>Heading</label><input type="text" formControlName="heading" /></div>
+        <div class="field full"><label>Content</label><textarea rows="4" formControlName="content"></textarea></div>
+      </div>
+    </section>
+
+    <section class="editor-section" formGroupName="mission">
+      <h2 class="section-title">Mission</h2>
+      <div class="fields-grid">
+        <div class="field full"><label>Heading</label><input type="text" formControlName="heading" /></div>
+        <div class="field full"><label>Content</label><textarea rows="4" formControlName="content"></textarea></div>
+      </div>
+    </section>
+
+  </form>
+</div>

@@ -1,0 +1,132 @@
+<div class="editor">
+  <div class="editor-header">
+    <h1 class="page-title">Home Page</h1>
+    <button class="btn-save" (click)="save()" [disabled]="saving() || form.invalid">
+      {{ saving() ? 'Saving…' : 'Save changes' }}
+    </button>
+  </div>
+
+  @if (loadError()) { <div class="alert-error">{{ loadError() }}</div> }
+  @if (saveSuccess()) { <div class="alert-success">Saved successfully!</div> }
+
+  <form [formGroup]="form">
+
+    <!-- HERO -->
+    <section class="editor-section" formGroupName="hero">
+      <h2 class="section-title">Hero</h2>
+      <div class="fields-grid">
+        <div class="field">
+          <label>Headline</label>
+          <input type="text" formControlName="headline" />
+        </div>
+        <div class="field">
+          <label>Subheadline</label>
+          <input type="text" formControlName="subheadline" />
+        </div>
+        <div class="field">
+          <label>Badge text</label>
+          <input type="text" formControlName="badge" />
+        </div>
+        <div class="field">
+          <label>CTA button text</label>
+          <input type="text" formControlName="cta_text" />
+        </div>
+        <div class="field full">
+          <label>Hero image path</label>
+          <input type="text" formControlName="hero_image" />
+        </div>
+      </div>
+
+      <!-- Carousel slides -->
+      <div class="array-section">
+        <div class="array-header">
+          <h3>Carousel Slides</h3>
+          <button type="button" class="btn-add" (click)="addSlide()">+ Add slide</button>
+        </div>
+        @for (slide of carouselSlides.controls; track $index) {
+          <div class="array-row" [formGroup]="slideGroup($index)">
+            <div class="field flex1">
+              <label>Image path</label>
+              <input type="text" formControlName="image" />
+            </div>
+            <div class="field flex1">
+              <label>Alt text</label>
+              <input type="text" formControlName="alt" />
+            </div>
+            <button type="button" class="btn-remove" (click)="removeSlide($index)">✕</button>
+          </div>
+        }
+      </div>
+
+      <!-- Stats -->
+      <div class="array-section">
+        <div class="array-header">
+          <h3>Stats</h3>
+          <button type="button" class="btn-add" (click)="addStat()">+ Add stat</button>
+        </div>
+        @for (stat of stats.controls; track $index) {
+          <div class="array-row" [formGroup]="statGroup($index)">
+            <div class="field flex1">
+              <label>Number</label>
+              <input type="text" formControlName="num" />
+            </div>
+            <div class="field flex1">
+              <label>Label</label>
+              <input type="text" formControlName="label" />
+            </div>
+            <button type="button" class="btn-remove" (click)="removeStat($index)">✕</button>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ABOUT PREVIEW -->
+    <section class="editor-section" formGroupName="about_preview">
+      <h2 class="section-title">About Preview</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Heading 1</label><input type="text" formControlName="heading1" /></div>
+        <div class="field"><label>Heading 2</label><input type="text" formControlName="heading2" /></div>
+        <div class="field full"><label>Paragraph 1</label><textarea rows="3" formControlName="para1"></textarea></div>
+        <div class="field full"><label>Paragraph 2</label><textarea rows="3" formControlName="para2"></textarea></div>
+        <div class="field"><label>Main image path</label><input type="text" formControlName="image_main" /></div>
+        <div class="field"><label>Accent image path</label><input type="text" formControlName="image_accent" /></div>
+        <div class="field"><label>Badge number</label><input type="text" formControlName="badge_num" /></div>
+        <div class="field"><label>Badge label</label><input type="text" formControlName="badge_label" /></div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="editor-section" formGroupName="why_us">
+      <h2 class="section-title">Why Us</h2>
+      <div class="field">
+        <label>Section heading</label>
+        <input type="text" formControlName="heading" />
+      </div>
+      <div class="array-section">
+        <div class="array-header">
+          <h3>Cards</h3>
+          <button type="button" class="btn-add" (click)="addCard()">+ Add card</button>
+        </div>
+        @for (card of whyCards.controls; track $index) {
+          <div class="array-row col3" [formGroup]="cardGroup($index)">
+            <div class="field flex1"><label>Icon (emoji)</label><input type="text" formControlName="icon" /></div>
+            <div class="field flex2"><label>Title</label><input type="text" formControlName="title" /></div>
+            <div class="field flex3"><label>Description</label><input type="text" formControlName="desc" /></div>
+            <button type="button" class="btn-remove" (click)="removeCard($index)">✕</button>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="editor-section" formGroupName="cta">
+      <h2 class="section-title">CTA Section</h2>
+      <div class="fields-grid">
+        <div class="field"><label>Heading</label><input type="text" formControlName="heading" /></div>
+        <div class="field"><label>Subtext</label><input type="text" formControlName="subtext" /></div>
+        <div class="field full"><label>Image path</label><input type="text" formControlName="image" /></div>
+      </div>
+    </section>
+
+  </form>
+</div>
