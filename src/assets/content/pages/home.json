@@ -4,11 +4,20 @@
     "subheadline": "Delivering nature's finest from farm to world — quality assured, globally compliant, reliably supplied.",
     "badge": "Trusted Globally Since 2010",
     "cta_text": "Explore Products",
-    "hero_image": "assets/images/uploads/goat_milk_powder_202604230000.jpeg",
+    "hero_image": "assets/images/uploads/banner/goat_milk_powder_202604230000.jpeg",
     "carousel_slides": [
-      { "image": "assets/images/uploads/banner/goat_milk_powder_202604230000.jpeg", "alt": "Goat Milk Powder" },
-      { "image": "assets/images/uploads/banner/photo-1596040033229-a9821ebd058d.jpg", "alt": "Premium Spices Export" },
-      { "image": "assets/images/uploads/banner/sugar_202604231322.jpeg", "alt": "Sugar Export" }
+      {
+        "image": "assets/images/uploads/banner/goat_milk_powder_202604230000.jpeg",
+        "alt": "Goat Milk Powder"
+      },
+      {
+        "image": "assets/images/uploads/banner/photo-1596040033229-a9821ebd058d.jpg",
+        "alt": "Premium Spices Export"
+      },
+      {
+        "image": "assets/images/uploads/banner/sugar_202604231322.jpeg",
+        "alt": "Sugar Export"
+      }
     ],
     "stats": [
       {
