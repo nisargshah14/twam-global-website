@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start d:\\\\Workspace\\\\TwamGlobal\\\\color-preview.html)",
+      "Bash(explorer \"d:\\\\Workspace\\\\TwamGlobal\\\\color-preview.html\")",
+      "PowerShell(Start-Process \"d:\\\\Workspace\\\\TwamGlobal\\\\color-preview.html\")",
+      "WebFetch(domain:deft-malabi-5a1bcd.netlify.app)",
+      "PowerShell(Start-Process \"d:\\\\Workspace\\\\TwamGlobal\\\\index.html\")",
+      "Bash(git -C \"d:/Workspace/TwamGlobal\" ls-files images/uploads/)",
+      "Bash(git -C \"d:/Workspace/TwamGlobal\" status)",
+      "Bash(git -C \"d:/Workspace/TwamGlobal\" add styles.css index.html admin/config.yml cms-data.js content/pages/home.json images/uploads/.gitkeep)",
+      "Bash(git -C d:/Workspace/TwamGlobal commit -m ' *)",
+      "Bash(git -C \"d:/Workspace/TwamGlobal\" remote -v)",
+      "Bash(git -C \"d:/Workspace/TwamGlobal\" checkout -b feature/cloudflare-migration)",
+      "WebSearch",
+      "WebFetch(domain:web3forms.com)",
+      "WebFetch(domain:docs.web3forms.com)",
+      "Bash(git checkout *)",
+      "Bash(npm --version)",
+      "Bash(npx @angular/cli@latest version)",
+      "Bash(npx @angular/cli@latest new twam-global --directory . --skip-git --style=scss --routing=true --standalone=true --package-manager=npm --force)",
+      "Bash(cp content/pages/*.json src/assets/content/pages/)",
+      "Bash(cp content/products/*.json src/assets/content/products/)",
+      "Bash(cp images/uploads/banner/* src/assets/images/uploads/banner/)",
+      "Bash(cp images/uploads/product/* src/assets/images/uploads/product/)",
+      "Bash(npx ng *)",
+      "Bash(xargs sed *)",
+      "Bash(npm install *)",
+      "Bash(npm uninstall *)",
+      "Bash(git add *)"
+    ]
+  }
+}

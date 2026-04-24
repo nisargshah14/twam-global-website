@@ -1,0 +1,179 @@
+@if (home()) {
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-carousel">
+    @for (slide of home()!.hero.carousel_slides; track slide.image; let i = $index) {
+      <div class="hero-slide" [class.active]="activeSlide() === i"
+           [style.background-image]="'url(' + slide.image + ')'">
+      </div>
+    }
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">{{ home()!.hero.badge }}</div>
+    <h1 class="hero-title">
+      {{ home()!.hero.headline.split(',')[0] }},
+      <em>{{ home()!.hero.headline.split(',')[1]?.trim() }}</em>
+    </h1>
+    <p class="hero-sub">{{ home()!.hero.subheadline }}</p>
+    <div class="hero-actions">
+      <a routerLink="/products" class="btn btn-gold">{{ home()!.hero.cta_text }} →</a>
+      <a routerLink="/contact" class="btn btn-ghost">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      @for (stat of home()!.hero.stats; track stat.label; let i = $index) {
+        @if (i > 0) { <div class="stat-div"></div> }
+        <div class="stat">
+          <span class="stat-num">{{ stat.num }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+
+  <button class="hero-arr hero-prev" (click)="prevSlide()" aria-label="Previous">&#8592;</button>
+  <button class="hero-arr hero-next" (click)="nextSlide()" aria-label="Next">&#8594;</button>
+  <div class="hero-dots">
+    @for (slide of home()!.hero.carousel_slides; track slide.image; let i = $index) {
+      <button class="hero-dot" [class.active]="activeSlide() === i" (click)="goToSlide(i)" aria-label="Slide {{ i+1 }}"></button>
+    }
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+@if (marqueeItems.length) {
+<div class="marquee-bar">
+  <div class="marquee-track">
+    @for (item of marqueeItems; track item + $index) {
+      <span>{{ item }}</span>
+      <span class="dot">◆</span>
+    }
+  </div>
+</div>
+}
+
+<!-- ABOUT PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="img-stack reveal">
+        <img class="img-main" [src]="home()!.about_preview.image_main" [alt]="home()!.about_preview.heading1" />
+        <img class="img-accent" [src]="home()!.about_preview.image_accent" alt="Farm sourcing" />
+        <div class="img-badge">
+          <span class="badge-num">{{ home()!.about_preview.badge_num }}</span>
+          <span class="badge-text">{{ home()!.about_preview.badge_label }}</span>
+        </div>
+      </div>
+      <div class="about-text reveal delay-1">
+        <div class="section-tag">Our Story</div>
+        <h2 class="section-title">
+          {{ home()!.about_preview.heading1 }}<br>
+          <em>{{ home()!.about_preview.heading2 }}</em>
+        </h2>
+        <p>{{ home()!.about_preview.para1 }}</p>
+        <p>{{ home()!.about_preview.para2 }}</p>
+        <a routerLink="/about" class="btn btn-outline-green mt-2">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+@if (categories().length) {
+<section class="section bg-off">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Portfolio</div>
+      <h2 class="section-title">Premium Products, <em>Global Standards</em></h2>
+      <p class="section-sub">From spices to oilseeds — nature's finest, export-ready.</p>
+    </div>
+    <div class="product-grid">
+      @for (cat of categories(); track cat.name; let i = $index) {
+        <a [routerLink]="['/products']" class="product-card" [ngClass]="bentoClass(slugOf(cat, i))">
+          <img [src]="cat.cover_image" [alt]="cat.name" />
+          <span class="bento-num">{{ bentoNum(i) }}</span>
+          <div class="bento-content">
+            <div class="bento-cat">Category</div>
+            <div class="bento-name">{{ cat.name }}</div>
+            <div class="bento-sub">{{ cat.description }}</div>
+            <div class="bento-arrow">View Products →</div>
+          </div>
+          <div class="bento-gold-bar"></div>
+        </a>
+      }
+    </div>
+    <div class="center mt-4 reveal">
+      <a routerLink="/products" class="btn btn-green">View All Products →</a>
+    </div>
+  </div>
+</section>
+}
+
+<!-- WHY US -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">{{ home()!.why_us.heading }}</h2>
+    </div>
+    <div class="why-grid">
+      @for (card of home()!.why_us.cards; track card.title; let i = $index) {
+        <div class="why-card reveal" [class]="'delay-' + (i % 3 + 1)">
+          <div class="why-icon">{{ card.icon }}</div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-section bg-dark">
+  <div class="container">
+    <div class="cert-inner">
+      <div class="cert-text reveal">
+        <div class="section-tag light">Compliance</div>
+        <h2 class="section-title light">Internationally <em>Certified</em></h2>
+        <p class="light-text">All our exports comply with global food safety and quality standards, backed by internationally recognised certifications.</p>
+      </div>
+      <div class="cert-badges reveal delay-1">
+        <div class="cert-badge">APEDA</div>
+        <div class="cert-badge">FSSAI</div>
+        <div class="cert-badge">ISO 9001</div>
+        <div class="cert-badge">HACCP</div>
+        <div class="cert-badge">Organic</div>
+        <div class="cert-badge">Phytosanitary</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <div class="cta-content">
+        <h2 class="section-title">{{ home()!.cta.heading }}</h2>
+        <p>{{ home()!.cta.subtext }}</p>
+        <div class="cta-actions">
+          <a routerLink="/contact" class="btn btn-gold">Contact Us →</a>
+          <a routerLink="/products" class="btn btn-ghost">Browse Products</a>
+        </div>
+      </div>
+      <div class="cta-image">
+        <img [src]="home()!.cta.image" alt="Export shipment" />
+      </div>
+    </div>
+  </div>
+</section>
+}

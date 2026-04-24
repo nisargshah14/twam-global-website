@@ -1,0 +1,135 @@
+@if (contact()) {
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="page-hero-img" [src]="contact()!.hero_image" alt="Contact" />
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a routerLink="/">Home</a>
+        <span>/</span>
+        <span>Contact</span>
+      </div>
+      <div class="section-tag light">{{ contact()!.hero_tag }}</div>
+      <h1 class="page-title" [innerHTML]="contact()!.hero_heading"></h1>
+      <p>{{ contact()!.hero_subtext }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK STRIP -->
+<div style="background:var(--gold); padding:14px 0;">
+  <div class="container" style="display:flex; gap:48px; justify-content:center;">
+    <span style="font-size:0.9rem; font-weight:600; color:var(--green);">⚡ Response: {{ contact()!.strip_response_time }}</span>
+    <span style="font-size:0.9rem; font-weight:600; color:var(--green);">🌍 Serving {{ contact()!.strip_countries }}</span>
+  </div>
+</div>
+
+<!-- CONTACT GRID -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Info Panel -->
+      <div class="contact-info reveal">
+        <h3>{{ contact()!.info_heading }}</h3>
+        <p>{{ contact()!.info_subtext }}</p>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="detail-icon">✉</div>
+            <div class="detail-text">
+              <h4>Email</h4>
+              <p><a [href]="'mailto:' + contact()!.email1">{{ contact()!.email1 }}</a></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">📞</div>
+            <div class="detail-text">
+              <h4>Phone / WhatsApp</h4>
+              <p><a [href]="'tel:' + contact()!.phone1">{{ contact()!.phone1 }}</a></p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-text">
+              <h4>Office Address</h4>
+              <p>{{ contact()!.address1 }}<br>{{ contact()!.address2 }}<br>{{ contact()!.address3 }}</p>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="detail-icon">🕐</div>
+            <div class="detail-text">
+              <h4>Business Hours</h4>
+              <p>{{ contact()!.hours }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:32px;">
+          <div class="section-tag">Certifications</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
+            @for (cert of contact()!.certifications; track cert) {
+              <span style="padding:6px 12px; background:var(--off-white); border:1px solid var(--border); border-radius:4px; font-size:0.78rem; font-weight:600; letter-spacing:0.06em;">{{ cert }}</span>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="contact-form-wrap reveal delay-1">
+        <h3>{{ contact()!.form_heading }}</h3>
+        <p>{{ contact()!.form_subtext }}</p>
+
+        @if (submitted()) {
+          <div class="form-success-banner">
+            <span style="font-size:1.4rem;">✅</span>
+            <p>Thank you! Your enquiry has been submitted. We'll get back to you within 24 working hours.</p>
+          </div>
+        }
+
+        @if (submitError()) {
+          <div style="background:#fef2f2; border:1.5px solid #dc2626; border-radius:8px; padding:16px 20px; margin-bottom:24px; font-size:0.9rem; color:#dc2626;">
+            ⚠ {{ submitError() }}
+          </div>
+        }
+
+        <form (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-row">
+            <div class="form-group" [class.error]="errors['firstName']">
+              <label>First Name *</label>
+              <input type="text" [(ngModel)]="form.firstName" name="firstName" placeholder="John" />
+              @if (errors['firstName']) { <span class="field-error">{{ errors['firstName'] }}</span> }
+            </div>
+            <div class="form-group" [class.error]="errors['lastName']">
+              <label>Last Name *</label>
+              <input type="text" [(ngModel)]="form.lastName" name="lastName" placeholder="Smith" />
+              @if (errors['lastName']) { <span class="field-error">{{ errors['lastName'] }}</span> }
+            </div>
+          </div>
+
+          <div class="form-group" [class.error]="errors['email']">
+            <label>Email Address *</label>
+            <input type="email" [(ngModel)]="form.email" name="email" placeholder="john@company.com" />
+            @if (errors['email']) { <span class="field-error">{{ errors['email'] }}</span> }
+          </div>
+
+          <div class="form-group">
+            <label>Phone / WhatsApp <span style="font-weight:400;">(Optional)</span></label>
+            <input type="tel" [(ngModel)]="form.phone" name="phone" placeholder="+1 234 567 8900" />
+          </div>
+
+          <div class="form-group" [class.error]="errors['message']">
+            <label>Your Message *</label>
+            <textarea [(ngModel)]="form.message" name="message" placeholder="Tell us about your product requirements, quantity, destination country..."></textarea>
+            @if (errors['message']) { <span class="field-error">{{ errors['message'] }}</span> }
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center;" [disabled]="submitting()">
+            {{ submitting() ? 'Sending...' : 'Send Enquiry →' }}
+          </button>
+          <p class="form-note">We respond within 24 working hours · All enquiries are confidential</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+}
