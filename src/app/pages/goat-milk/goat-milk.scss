@@ -1,4 +1,8 @@
-:host { display: block; background: var(--cream); }
+:host {
+  display: block;
+  background: var(--cream);
+  --font-display: 'DM Serif Display', Georgia, serif;
+}
 
 /* ============================================================
    HERO — accounts for fixed global navbar (72px)
