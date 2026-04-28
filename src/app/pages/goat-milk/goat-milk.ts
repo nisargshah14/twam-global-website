@@ -52,6 +52,10 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
     });
   }
 
+  scrollToForm() {
+    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   validate(): boolean {
     this.errors = {};
     if (!this.form.name.trim()) this.errors['name'] = 'Full name is required';
