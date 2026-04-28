@@ -92,7 +92,7 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
   benefits = [
     { icon: '🥛', title: 'Easier to Digest', desc: 'Natural A2 protein and smaller fat globules make goat milk powder gentler on the stomach than cow milk — ideal for sensitive consumers.' },
     { icon: '🌿', title: 'Rich in Nutrients', desc: 'High in calcium, potassium, vitamin A and B6. Naturally closer to human milk composition than any other dairy source.' },
-    { icon: '🏔️', title: 'Spray-Dried Quality', desc: 'Low-temperature spray drying preserves nutrients. Every batch tested for heavy metals, pathogens, and moisture before dispatch.' },
+    { icon: '❄️', title: 'Freeze-Dried Quality', desc: 'Freeze drying locks in maximum nutrients without heat. Every batch tested for heavy metals, pathogens, and moisture before dispatch.' },
   ];
 
   specs = [
