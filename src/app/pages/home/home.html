@@ -14,24 +14,14 @@
   <div class="hero-orb hero-orb-2"></div>
 
   <div class="hero-content">
-    <div class="hero-badge">{{ home()!.hero.badge }}</div>
-    <h1 class="hero-title">
+    <h2 class="hero-title">
       {{ home()!.hero.headline.split(',')[0] }},
       <em>{{ home()!.hero.headline.split(',')[1]?.trim() }}</em>
-    </h1>
+    </h2>
     <p class="hero-sub">{{ home()!.hero.subheadline }}</p>
     <div class="hero-actions">
       <a routerLink="/products" class="btn btn-gold">{{ home()!.hero.cta_text }} →</a>
       <a routerLink="/contact" class="btn btn-ghost">Get a Quote</a>
-    </div>
-    <div class="hero-stats">
-      @for (stat of home()!.hero.stats; track stat.label; let i = $index) {
-        @if (i > 0) { <div class="stat-div"></div> }
-        <div class="stat">
-          <span class="stat-num">{{ stat.num }}</span>
-          <span class="stat-label">{{ stat.label }}</span>
-        </div>
-      }
     </div>
   </div>
 
@@ -68,10 +58,10 @@
       <div class="img-stack reveal">
         <img class="img-main" [src]="home()!.about_preview.image_main" [alt]="home()!.about_preview.heading1" />
         <img class="img-accent" [src]="home()!.about_preview.image_accent" alt="Farm sourcing" />
-        <div class="img-badge">
+        <!-- <div class="img-badge">
           <span class="badge-num">{{ home()!.about_preview.badge_num }}</span>
           <span class="badge-text">{{ home()!.about_preview.badge_label }}</span>
-        </div>
+        </div> -->
       </div>
       <div class="about-text reveal delay-1">
         <div class="section-tag">Our Story</div>
@@ -89,12 +79,12 @@
 
 <!-- PRODUCT GRID -->
 @if (categories().length) {
-<section class="section bg-off">
+<section class="section bg-dark">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-tag">Our Portfolio</div>
-      <h2 class="section-title">Premium Products, <em>Global Standards</em></h2>
-      <p class="section-sub">From spices to oilseeds — nature's finest, export-ready.</p>
+      <div class="section-tag light">Our Portfolio</div>
+      <h2 class="section-title light">Premium Products, <em>Global Standards</em></h2>
+      <p class="section-sub light">From spices to oilseeds — nature's finest, export-ready.</p>
     </div>
     <div class="product-grid">
       @for (cat of categories(); track cat.name; let i = $index) {
@@ -112,7 +102,7 @@
       }
     </div>
     <div class="center mt-4 reveal">
-      <a routerLink="/products" class="btn btn-green">View All Products →</a>
+      <a routerLink="/products" class="btn btn-gold">View All Products →</a>
     </div>
   </div>
 </section>
@@ -133,27 +123,6 @@
           <p>{{ card.desc }}</p>
         </div>
       }
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="cert-section bg-dark">
-  <div class="container">
-    <div class="cert-inner">
-      <div class="cert-text reveal">
-        <div class="section-tag light">Compliance</div>
-        <h2 class="section-title light">Internationally <em>Certified</em></h2>
-        <p class="light-text">All our exports comply with global food safety and quality standards, backed by internationally recognised certifications.</p>
-      </div>
-      <div class="cert-badges reveal delay-1">
-        <div class="cert-badge">APEDA</div>
-        <div class="cert-badge">FSSAI</div>
-        <div class="cert-badge">ISO 9001</div>
-        <div class="cert-badge">HACCP</div>
-        <div class="cert-badge">Organic</div>
-        <div class="cert-badge">Phytosanitary</div>
-      </div>
     </div>
   </div>
 </section>

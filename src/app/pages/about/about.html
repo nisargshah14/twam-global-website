@@ -29,31 +29,13 @@
       </div>
       <div class="about-intro-img reveal delay-1">
         <img [src]="about()!.intro.image" alt="TWAM GLOBAL operations" />
-        <div class="floating-stat">
-          <span class="badge-num">15+</span>
-          <span class="badge-text">Years of<br>Excellence</span>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="section bg-off">
-  <div class="container">
-    <div class="values-grid">
-      @for (stat of about()!.stats; track stat.label; let i = $index) {
-        <div class="value-item reveal" [class]="'delay-' + (i + 1)">
-          <div class="value-num">{{ stat.num }}</div>
-          <div class="value-label">{{ stat.label }}</div>
-        </div>
-      }
-    </div>
-  </div>
-</section>
-
 <!-- VISION & MISSION -->
-<section class="section">
+<section class="section bg-off">
   <div class="container">
     <div class="section-header reveal">
       <div class="section-tag">Our Purpose</div>
@@ -72,26 +54,7 @@
   </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section class="cert-section bg-dark">
-  <div class="container">
-    <div class="cert-inner">
-      <div class="cert-text reveal">
-        <div class="section-tag light">Compliance</div>
-        <h2 class="section-title light">Certified for <em>Global Trade</em></h2>
-        <p class="light-text">Our certifications guarantee that every product we export meets the highest international food safety and quality standards.</p>
-      </div>
-      <div class="cert-badges reveal delay-1">
-        <div class="cert-badge">APEDA</div>
-        <div class="cert-badge">FSSAI</div>
-        <div class="cert-badge">ISO 9001</div>
-        <div class="cert-badge">HACCP</div>
-        <div class="cert-badge">Organic</div>
-        <div class="cert-badge">Phytosanitary</div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CTA -->
 <section class="section">

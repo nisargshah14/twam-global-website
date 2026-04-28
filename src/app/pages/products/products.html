@@ -1,57 +1,54 @@
 <!-- PAGE HERO -->
-<section class="page-hero">
-  <img class="page-hero-img" src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1600&q=80" alt="Products" />
+<section class="page-hero oc-hero">
   <div class="container">
     <div class="page-hero-content">
-      <div class="breadcrumb">
-        <a routerLink="/">Home</a>
-        <span>/</span>
-        <span>Products</span>
-      </div>
-      <h1 class="page-title">Premium Products, <em>Global Standards</em></h1>
-      <p>Explore our complete portfolio of export-grade agricultural products — carefully sourced from India's finest growing regions.</p>
+      <div class="breadcrumb"><a routerLink="/">Home</a><span>/</span><span>Products</span></div>
+      <h1 class="page-title">Our <em>Product Range</em></h1>
+      <p>Export-grade agricultural products, sourced from India's finest growing regions.</p>
     </div>
   </div>
 </section>
 
-<!-- PRODUCTS LISTING -->
-<section class="section">
-  <div class="container">
-    <!-- Filter Bar -->
-    @if (categories().length) {
-    <div class="products-filter">
-      <button class="filter-btn" [class.active]="activeFilter() === 'all'" (click)="setFilter('all')">All Products</button>
+@if (categories().length) {
+<div class="oc-layout">
+
+  <!-- Sidebar -->
+  <aside class="oc-sidebar">
+    <div class="oc-sidebar-inner">
+      <div class="oc-sidebar-label">Categories</div>
       @for (cat of categories(); track cat.name; let i = $index) {
-        <button class="filter-btn" [class.active]="activeFilter() === categorySlug(i)" (click)="setFilter(categorySlug(i))">
-          {{ cat.emoji }} {{ cat.name }}
+        <button class="oc-nav-item" (click)="scrollToSection(categorySlug(i))">
+          <span>{{ cat.emoji }} {{ cat.name }}</span>
+          <span class="oc-nav-count">{{ cat.products.length }}</span>
         </button>
       }
     </div>
+  </aside>
 
-    <!-- Category Blocks -->
+  <!-- Main content -->
+  <main class="oc-main">
     @for (cat of categories(); track cat.name; let i = $index) {
-      @if (isVisible(i)) {
-      <div class="category-block reveal" [id]="'cat-' + categorySlug(i)">
-        <div class="category-header">
-          <h2><em>{{ cat.emoji }}</em> {{ cat.name }}</h2>
-          <span class="category-count">{{ cat.products.length }} Products</span>
+      <div class="oc-cat" [id]="'cat-' + categorySlug(i)">
+        <div class="oc-cat-head">
+          <h2 class="oc-cat-title">{{ cat.emoji }} {{ cat.name }}</h2>
+          <span class="oc-count-badge">{{ cat.products.length }} products</span>
         </div>
-        <div class="products-mini-grid">
-          @for (product of cat.products; track product.name) {
-            <div class="product-mini-card">
-              <div class="mini-card-img">
-                <img [src]="product.image || cat.cover_image" [alt]="product.name" />
+        <div class="oc-list">
+          @for (product of cat.products; track product.name; let j = $index) {
+            <div class="oc-row">
+              <span class="oc-row-num">{{ (j + 1).toString().padStart(2, '0') }}</span>
+              <div class="oc-row-img">
+                <img [src]="product.image || cat.cover_image" [alt]="product.name" loading="lazy" />
               </div>
-              <div class="mini-card-body">
+              <div class="oc-row-info">
                 <h4>{{ product.name }}</h4>
                 <p>{{ product.sublabel }}</p>
               </div>
+              <span class="oc-row-tag">Export Grade</span>
             </div>
           }
         </div>
       </div>
-      }
-    }
     }
 
     <!-- CTA -->
@@ -67,5 +64,7 @@
         <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=700&q=80" alt="Export" />
       </div>
     </div>
-  </div>
-</section>
+  </main>
+
+</div>
+}

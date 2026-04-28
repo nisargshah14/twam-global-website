@@ -16,14 +16,6 @@
   </div>
 </section>
 
-<!-- QUICK STRIP -->
-<div style="background:var(--gold); padding:14px 0;">
-  <div class="container" style="display:flex; gap:48px; justify-content:center;">
-    <span style="font-size:0.9rem; font-weight:600; color:var(--green);">⚡ Response: {{ contact()!.strip_response_time }}</span>
-    <span style="font-size:0.9rem; font-weight:600; color:var(--green);">🌍 Serving {{ contact()!.strip_countries }}</span>
-  </div>
-</div>
-
 <!-- CONTACT GRID -->
 <section class="section">
   <div class="container">
@@ -48,7 +40,7 @@
               <p><a [href]="'tel:' + contact()!.phone1">{{ contact()!.phone1 }}</a></p>
             </div>
           </div>
-          <div class="contact-detail-item">
+          <!-- <div class="contact-detail-item">
             <div class="detail-icon">📍</div>
             <div class="detail-text">
               <h4>Office Address</h4>
@@ -61,17 +53,17 @@
               <h4>Business Hours</h4>
               <p>{{ contact()!.hours }}</p>
             </div>
-          </div>
+          </div> -->
         </div>
 
-        <div style="margin-top:32px;">
+        <!-- <div style="margin-top:32px;">
           <div class="section-tag">Certifications</div>
           <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:12px;">
             @for (cert of contact()!.certifications; track cert) {
               <span style="padding:6px 12px; background:var(--off-white); border:1px solid var(--border); border-radius:4px; font-size:0.78rem; font-weight:600; letter-spacing:0.06em;">{{ cert }}</span>
             }
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Form -->

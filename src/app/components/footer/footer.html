@@ -8,11 +8,11 @@
           <span class="logo-text">TWAM <em>GLOBAL</em></span>
         </a>
         <p>{{ contact()!.footer_text }}</p>
-        <div class="footer-socials">
+        <!-- <div class="footer-socials">
           <a href="#" aria-label="LinkedIn">in</a>
           <a href="#" aria-label="Twitter">X</a>
           <a href="https://wa.me/919727763616" aria-label="WhatsApp">W</a>
-        </div>
+        </div> -->
       </div>
 
       <div class="footer-col">
@@ -41,15 +41,12 @@
         <ul class="footer-contact">
           <li><span>✉</span><span>{{ contact()!.email1 }}</span></li>
           <li><span>📞</span><span>{{ contact()!.phone1 }}</span></li>
-          <li><span>📍</span><span>{{ contact()!.address1 }}, {{ contact()!.address2 }}, {{ contact()!.address3 }}</span></li>
-          <li><span>🕐</span><span>{{ contact()!.hours }}</span></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>&copy; {{ year }} TWAM GLOBAL. All rights reserved.</span>
-      <span>Certified: {{ contact()!.certifications.join(' · ') }}</span>
     </div>
   </div>
 </footer>

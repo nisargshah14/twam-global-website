@@ -54,6 +54,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
     return this.categorySlug(index) === filter;
   }
 
+  scrollToSection(slug: string) {
+    this.activeFilter.set('all');
+    setTimeout(() => {
+      const el = this.el.nativeElement.querySelector(`#cat-${slug}`);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 0);
+  }
+
   categorySlug(index: number): string {
     const slugs = ['spices', 'oilseeds', 'edibleoils', 'sugar', 'rice', 'raisins', 'agri', 'pulses'];
     return slugs[index] ?? '';
