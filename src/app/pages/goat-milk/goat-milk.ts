@@ -26,6 +26,8 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
   errors: Record<string, string> = {};
 
   ngOnInit() {
+    document.body.classList.add('nav-dark');
+
     this.route.queryParams.subscribe(params => {
       ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(k => {
         if (params[k]) this.utmParams[k] = params[k];
@@ -38,7 +40,10 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
     setTimeout(() => this.observeRevealElements(), 0);
   }
 
-  ngOnDestroy() { this.observer?.disconnect(); }
+  ngOnDestroy() {
+    document.body.classList.remove('nav-dark');
+    this.observer?.disconnect();
+  }
 
   private observeRevealElements() {
     this.el.nativeElement.querySelectorAll('.reveal:not([data-observed])').forEach((el: Element) => {
