@@ -1,36 +1,29 @@
-import { Component, OnInit, OnDestroy, HostListener, signal, ElementRef, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, ElementRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink, ActivatedRoute } from '@angular/router';
-import { environment } from '../../../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'app-goat-milk-option1',
-  imports: [FormsModule, RouterLink],
-  templateUrl: './option1.html',
-  styleUrl: './option1.scss',
+  selector: 'app-goat-milk',
+  imports: [FormsModule],
+  templateUrl: './goat-milk.html',
+  styleUrl: './goat-milk.scss',
 })
-export class GoatMilkOption1Component implements OnInit, OnDestroy {
+export class GoatMilkComponent implements OnInit, OnDestroy {
   private el = inject(ElementRef);
   private route = inject(ActivatedRoute);
 
   submitted = signal(false);
   submitting = signal(false);
   submitError = signal('');
-  navScrolled = signal(false);
 
   private observer?: IntersectionObserver;
   private utmParams: Record<string, string> = {};
 
-  readonly whatsappNumber = '919727763616';
   readonly whatsappLink = `https://wa.me/919727763616?text=Hi%2C%20I%27m%20interested%20in%20your%20Goat%20Milk%20Powder.%20Can%20you%20share%20pricing%20and%20sample%20details%3F`;
 
   form = { name: '', email: '', phone: '' };
   errors: Record<string, string> = {};
-
-  @HostListener('window:scroll')
-  onScroll() {
-    this.navScrolled.set(window.scrollY > 72);
-  }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -72,7 +65,7 @@ export class GoatMilkOption1Component implements OnInit, OnDestroy {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
-          source: 'Goat Milk Landing — Option 1 (Pure & Natural)',
+          source: 'Goat Milk Landing Page',
           ...this.form,
           ...this.utmParams,
         }),
@@ -103,18 +96,8 @@ export class GoatMilkOption1Component implements OnInit, OnDestroy {
   ];
 
   testimonials = [
-    {
-      quote: 'Quality and consistency batch after batch. Twam Global has become our primary supplier for goat milk powder across Southeast Asia.',
-      name: 'R. Sharma',
-      role: 'Procurement Head, Dairy Brand · Singapore',
-      initial: 'R',
-    },
-    {
-      quote: 'Fast response, thorough documentation, and a product that meets our strict EU import standards. Highly recommended.',
-      name: 'M. Hoffmann',
-      role: 'Import Director · Germany',
-      initial: 'M',
-    },
+    { quote: 'Quality and consistency batch after batch. Twam Global has become our primary supplier for goat milk powder across Southeast Asia.', name: 'R. Sharma', role: 'Procurement Head, Dairy Brand · Singapore', initial: 'R' },
+    { quote: 'Fast response, thorough documentation, and a product that meets our strict EU import standards. Highly recommended.', name: 'M. Hoffmann', role: 'Import Director · Germany', initial: 'M' },
   ];
 
   countries = ['🇸🇬 Singapore', '🇩🇪 Germany', '🇦🇪 UAE', '🇺🇸 USA', '🇬🇧 UK', '🇦🇺 Australia', '🇳🇱 Netherlands', '🇸🇦 Saudi Arabia'];

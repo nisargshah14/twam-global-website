@@ -364,3 +364,8 @@ ul { list-style: none; }
 .oc-row-info p { font-size: 0.77rem; color: var(--text-light); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .oc-row-tag { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); background: rgba(212,131,74,0.08); border: 1px solid rgba(212,131,74,0.22); padding: 4px 10px; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
 
+/* ---- WHATSAPP STICKY BUTTON (global) ---- */
+.wa-sticky { position: fixed; bottom: 28px; right: 28px; z-index: 500; display: flex; align-items: center; gap: 10px; background: #25d366; color: #fff; padding: 13px 20px; border-radius: 50px; box-shadow: 0 6px 28px rgba(37,211,102,0.45); font-family: var(--font-body); font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: all 0.25s; }
+.wa-sticky:hover { background: #20b85a; transform: translateY(-3px); box-shadow: 0 10px 36px rgba(37,211,102,0.55); }
+@media (max-width: 480px) { .wa-sticky { bottom: 16px; right: 16px; border-radius: 50%; padding: 14px; } .wa-sticky-label { display: none; } }
+

@@ -1,0 +1,226 @@
+<!-- HERO — split layout, padded for fixed global navbar -->
+<section class="gm-hero">
+  <div class="gm-hero-orb gm-hero-orb-1"></div>
+  <div class="gm-hero-orb gm-hero-orb-2"></div>
+  <div class="container">
+    <div class="gm-hero-grid">
+
+      <!-- Left: Text -->
+      <div class="gm-hero-content">
+        <div class="section-tag">100% Natural · Export Grade · India</div>
+        <h1 class="gm-hero-title">Premium Goat Milk<br>Powder, <em>Straight<br>from the Farm</em></h1>
+        <p class="gm-hero-sub">Pure spray-dried whole goat milk powder — lab certified, farm sourced, and export-ready. Serving nutrition brands, formulators, and bulk buyers across 12+ countries.</p>
+        <div class="gm-hero-actions">
+          <a href="#lead-form" class="btn btn-gold">Request Free Sample →</a>
+          <a [href]="whatsappLink" target="_blank" rel="noopener" class="btn-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="gm-hero-trust">
+          <span>✓ No additives or fillers</span>
+          <span>✓ Full COA provided</span>
+          <span>✓ Ships globally</span>
+        </div>
+      </div>
+
+      <!-- Right: Product visual -->
+      <div class="gm-hero-visual reveal">
+        <div class="gm-product-card">
+          <!-- Replace this div with <img src="..." alt="Goat Milk Powder"> when product photo is ready -->
+          <div class="gm-product-placeholder">
+            <div class="gm-pip-inner">
+              <span class="gm-pip-emoji">🐐</span>
+              <span class="gm-pip-label">Goat Milk Powder</span>
+              <span class="gm-pip-sublabel">Export Grade · India</span>
+            </div>
+          </div>
+          <div class="gm-stat-badges">
+            <div class="gm-badge gm-badge-tl"><span class="gm-badge-val">≥24%</span><span class="gm-badge-lbl">Protein</span></div>
+            <div class="gm-badge gm-badge-tr"><span class="gm-badge-val">26–28%</span><span class="gm-badge-lbl">Fat</span></div>
+            <div class="gm-badge gm-badge-bl"><span class="gm-badge-val">100 kg</span><span class="gm-badge-lbl">Min. Order</span></div>
+            <div class="gm-badge gm-badge-br"><span class="gm-badge-val">24 mo</span><span class="gm-badge-lbl">Shelf Life</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="gm-trust-strip">
+  <div class="container">
+    <div class="gm-trust-items">
+      <div class="gm-trust-item"><span>🌿</span><span>100% Natural</span></div>
+      <span class="gm-trust-sep">◆</span>
+      <div class="gm-trust-item"><span>🧪</span><span>Lab Certified — COA Provided</span></div>
+      <span class="gm-trust-sep">◆</span>
+      <div class="gm-trust-item"><span>🐐</span><span>Farm Sourced</span></div>
+      <span class="gm-trust-sep">◆</span>
+      <div class="gm-trust-item"><span>✈️</span><span>Shipped to 12+ Countries</span></div>
+      <span class="gm-trust-sep">◆</span>
+      <div class="gm-trust-item"><span>📜</span><span>FSSAI Compliant</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- COUNTRY SOCIAL PROOF -->
+<section class="gm-countries">
+  <div class="container">
+    <div class="gm-countries-inner reveal">
+      <p class="gm-countries-label">Trusted by buyers across</p>
+      <div class="gm-countries-list">
+        @for (c of countries; track c) {
+          <span class="gm-country-chip">{{ c }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY GOAT MILK? -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-tag">Why Goat Milk?</div>
+      <h2 class="section-title">Nature's Most <em>Bioavailable</em> Dairy</h2>
+      <p class="section-sub">Goat milk is closer to human milk than cow milk — easier on the gut, richer in certain nutrients, and naturally A2 protein dominant.</p>
+    </div>
+    <div class="gm-benefits-grid">
+      @for (b of benefits; track b.title) {
+        <div class="gm-benefit-card reveal">
+          <div class="gm-benefit-icon">{{ b.icon }}</div>
+          <h3>{{ b.title }}</h3>
+          <p>{{ b.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SPECS -->
+<section class="section bg-off" id="specs">
+  <div class="container">
+    <div class="gm-specs-wrap">
+      <div class="gm-specs-text reveal">
+        <div class="section-tag">Product Specifications</div>
+        <h2 class="section-title">What You're <em>Getting</em></h2>
+        <p>Every batch is spray-dried using low-temperature processing to preserve nutritional integrity. Tested by accredited third-party labs before dispatch.</p>
+        <ul class="gm-specs-notes">
+          <li>✓ Free from antibiotics and hormones</li>
+          <li>✓ Non-GMO, vegetarian suitable</li>
+          <li>✓ Neutral taste, off-white colour</li>
+          <li>✓ Fully soluble in warm water</li>
+        </ul>
+        <a href="#lead-form" class="btn btn-gold" style="margin-top: 28px; display: inline-flex;">Request COA + Pricing →</a>
+      </div>
+      <div class="gm-specs-table-wrap reveal delay-1">
+        <table class="gm-specs-table">
+          <tbody>
+            @for (s of specs; track s.label) {
+              <tr>
+                <td class="gm-spec-label">{{ s.label }}</td>
+                <td class="gm-spec-value">{{ s.value }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="section-tag">Buyer Reviews</div>
+      <h2 class="section-title">What Our <em>Customers Say</em></h2>
+    </div>
+    <div class="gm-testimonials-grid">
+      @for (t of testimonials; track t.name) {
+        <div class="gm-testimonial-card reveal">
+          <div class="gm-quote-mark">"</div>
+          <p class="gm-quote-text">{{ t.quote }}</p>
+          <div class="gm-quote-author">
+            <div class="gm-author-avatar">{{ t.initial }}</div>
+            <div>
+              <div class="gm-author-name">{{ t.name }}</div>
+              <div class="gm-author-role">{{ t.role }}</div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="section bg-off" id="lead-form">
+  <div class="container">
+    <div class="gm-form-wrap">
+
+      <div class="gm-form-intro reveal">
+        <div class="section-tag">Get in Touch</div>
+        <h2 class="section-title">Request a <em>Free Sample</em><br>or Bulk Pricing</h2>
+        <p>Fill in your details and our team responds within 24 hours with pricing, sample availability, and full documentation.</p>
+        <div class="gm-form-promise">
+          <div class="gm-promise-item"><span>📧</span> Response within 24 hours</div>
+          <div class="gm-promise-item"><span>🔒</span> Your data is confidential</div>
+          <div class="gm-promise-item"><span>🎁</span> Free 500g sample available</div>
+          <div class="gm-promise-item"><span>📋</span> COA and spec sheet included</div>
+        </div>
+        <div class="gm-wa-alt">
+          <span>Prefer to chat?</span>
+          <a [href]="whatsappLink" target="_blank" rel="noopener" class="gm-wa-alt-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp us directly →
+          </a>
+        </div>
+      </div>
+
+      <div class="gm-form-card reveal delay-1">
+        @if (submitted()) {
+          <div class="gm-form-success">
+            <div class="gm-success-icon">✅</div>
+            <h3>Thank You!</h3>
+            <p>Your enquiry has been submitted. We'll respond within 24 working hours with pricing and sample details.</p>
+            <a [href]="whatsappLink" target="_blank" rel="noopener" class="btn btn-gold" style="margin-top:20px; justify-content:center; width:100%;">
+              Chat on WhatsApp →
+            </a>
+          </div>
+        }
+        @if (!submitted()) {
+          <h3 class="gm-form-title">Get Pricing & Free Sample</h3>
+          <p class="gm-form-sub">No commitment required. We respond within 24 hours.</p>
+          @if (submitError()) {
+            <div class="gm-form-error">⚠ {{ submitError() }}</div>
+          }
+          <form (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-group" [class.error]="errors['name']">
+              <label>Full Name *</label>
+              <input type="text" [(ngModel)]="form.name" name="name" placeholder="John Smith" autocomplete="name" />
+              @if (errors['name']) { <span class="field-error">{{ errors['name'] }}</span> }
+            </div>
+            <div class="form-group" [class.error]="errors['email']">
+              <label>Business Email *</label>
+              <input type="email" [(ngModel)]="form.email" name="email" placeholder="john@company.com" autocomplete="email" />
+              @if (errors['email']) { <span class="field-error">{{ errors['email'] }}</span> }
+            </div>
+            <div class="form-group" [class.error]="errors['phone']">
+              <label>Phone / WhatsApp *</label>
+              <input type="tel" [(ngModel)]="form.phone" name="phone" placeholder="+1 234 567 8900" autocomplete="tel" />
+              @if (errors['phone']) { <span class="field-error">{{ errors['phone'] }}</span> }
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%; justify-content:center; margin-top:4px;" [disabled]="submitting()">
+              {{ submitting() ? 'Sending...' : 'Request Sample & Pricing →' }}
+            </button>
+            <p class="form-note">We respond within 24 hours · All enquiries are confidential</p>
+          </form>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
