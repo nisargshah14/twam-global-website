@@ -27,7 +27,17 @@
       "Bash(xargs sed *)",
       "Bash(npm install *)",
       "Bash(npm uninstall *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git merge angular-rewrite --no-ff -m ' *)",
+      "Bash(git stash *)",
+      "Bash(npm show *)",
+      "Bash(npx tsc *)",
+      "Bash(node -e ' *)",
+      "Bash(git rm *)",
+      "Bash(npm run *)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('phone:', d.get\\('phone1',''\\), 'email:', d.get\\('email1',''\\)\\)\")",
+      "Bash(node -e \"const d=require\\('./src/assets/content/pages/contact.json'\\); console.log\\('phone:', d.phone1, 'email:', d.email1\\)\")"
     ]
   }
 }
