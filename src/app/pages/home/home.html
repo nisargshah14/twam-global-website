@@ -87,10 +87,22 @@
       <p class="section-sub light">From spices to oilseeds — nature's finest, export-ready.</p>
     </div>
     <div class="product-grid">
+      <a routerLink="/goat-milk" class="product-card bc-spices">
+        <img src="assets/images/uploads/product/goat_milk_powder_short.jpeg" alt="Goat Milk Powder" />
+        <span class="bento-num">01</span>
+        <div class="bento-content">
+          <div class="bento-cat">Category</div>
+          <div class="bento-name">Goat Milk Powder</div>
+          <div class="bento-sub">Premium freeze-dried, export-grade quality</div>
+          <div class="bento-arrow">View Products →</div>
+        </div>
+        <div class="bento-gold-bar"></div>
+      </a>
       @for (cat of categories(); track cat.name; let i = $index) {
+        @if (i !== 0) {
         <a [routerLink]="['/products']" class="product-card" [ngClass]="bentoClass(slugOf(cat, i))">
           <img [src]="cat.cover_image" [alt]="cat.name" />
-          <span class="bento-num">{{ bentoNum(i) }}</span>
+          <span class="bento-num">{{ bentoNum(i + 1) }}</span>
           <div class="bento-content">
             <div class="bento-cat">Category</div>
             <div class="bento-name">{{ cat.name }}</div>
@@ -99,6 +111,7 @@
           </div>
           <div class="bento-gold-bar"></div>
         </a>
+        }
       }
     </div>
     <div class="center mt-4 reveal">

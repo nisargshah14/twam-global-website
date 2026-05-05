@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "deploy-prod": "ng build --configuration=production",
     "test": "ng test",
     "dev": "concurrently \"npm run server:dev\" \"ng serve\"",
     "server:dev": "npm --prefix server run dev",

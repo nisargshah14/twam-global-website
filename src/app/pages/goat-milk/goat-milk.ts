@@ -83,7 +83,7 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
       this.form = { name: '', email: '', phone: '' };
       setTimeout(() => this.submitted.set(false), 8000);
     } catch {
-      this.submitError.set('Could not submit. Please WhatsApp us or email priyanka@twamglobal.com');
+      this.submitError.set('Could not submit. Please WhatsApp us or email sales@twamglobal.com');
     } finally {
       this.submitting.set(false);
     }
