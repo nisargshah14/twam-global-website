@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, signal, ElementRef, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -12,6 +13,8 @@ import { environment } from '../../../environments/environment';
 export class GoatMilkComponent implements OnInit, OnDestroy {
   private el = inject(ElementRef);
   private route = inject(ActivatedRoute);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
 
   submitted = signal(false);
   submitting = signal(false);
@@ -26,6 +29,11 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
   errors: Record<string, string> = {};
 
   ngOnInit() {
+    this.titleService.setTitle('Goat Milk Powder Exporters India — TWAM GLOBAL | Bulk Supply');
+    this.metaService.updateTag({ name: 'description', content: 'Buy bulk export-grade goat milk powder from TWAM GLOBAL, India. Freeze-dried, ≥24% protein, EU-compliant. Min order 100 kg. Request a free sample.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Goat Milk Powder — TWAM GLOBAL | India Bulk Exporter' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://twamglobal.com/goat-milk' });
+
     document.body.classList.add('nav-dark');
 
     this.route.queryParams.subscribe(params => {

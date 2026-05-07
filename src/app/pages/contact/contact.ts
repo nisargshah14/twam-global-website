@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, inject, signal, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Title, Meta } from '@angular/platform-browser';
 import { ContentService } from '../../services/content';
 import { ContactContent } from '../../models/content.model';
 import { environment } from '../../../environments/environment';
@@ -14,6 +15,8 @@ import { environment } from '../../../environments/environment';
 export class ContactComponent implements OnInit, OnDestroy {
   private contentService = inject(ContentService);
   private el = inject(ElementRef);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
 
   contact = signal<ContactContent | null>(null);
   submitted = signal(false);
@@ -32,6 +35,11 @@ export class ContactComponent implements OnInit, OnDestroy {
   errors: Record<string, string> = {};
 
   ngOnInit() {
+    this.titleService.setTitle('Contact Us — TWAM GLOBAL | Get a Quote');
+    this.metaService.updateTag({ name: 'description', content: 'Get in touch with TWAM GLOBAL to request a quote for bulk agricultural exports. We supply spices, pulses, oilseeds, rice, sugar, and goat milk powder worldwide.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'Contact TWAM GLOBAL — Request a Quote' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://twamglobal.com/contact' });
+
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });

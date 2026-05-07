@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, inject, signal, AfterViewInit, ElementRef } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 import { ContentService } from '../../services/content';
 import { HomeContent, ProductCategory } from '../../models/content.model';
 
@@ -21,6 +22,8 @@ const CATEGORY_SLUGS = ['spices', 'oilseeds', 'edibleoils', 'sugar', 'rice', 'ra
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private contentService = inject(ContentService);
   private el = inject(ElementRef);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
 
   home = signal<HomeContent | null>(null);
   categories = signal<ProductCategory[]>([]);
@@ -31,6 +34,12 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   private observer?: IntersectionObserver;
 
   ngOnInit() {
+    this.titleService.setTitle('TWAM GLOBAL — Premium Agricultural Exporters from India');
+    this.metaService.updateTag({ name: 'description', content: 'TWAM GLOBAL exports premium Indian agricultural products — spices, pulses, oilseeds, rice, sugar, and goat milk powder — to global markets since 2010.' });
+    this.metaService.updateTag({ property: 'og:title', content: 'TWAM GLOBAL — Premium Agricultural Exporters from India' });
+    this.metaService.updateTag({ property: 'og:url', content: 'https://twamglobal.com/' });
+    this.metaService.updateTag({ name: 'canonical', content: 'https://twamglobal.com/' });
+
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.12 });
