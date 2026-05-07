@@ -1,3 +1,10 @@
+/* Polyfill for Windows which lacks country flag emoji support in its system emoji font */
+@font-face {
+  font-family: 'Twemoji Country Flags';
+  unicode-range: U+1F1E0-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067, U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007A;
+  src: url('https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1/dist/TwemojiCountryFlags.woff2') format('woff2');
+}
+
 :host {
   display: block;
   background: var(--cream);
@@ -111,6 +118,7 @@
   display: inline-flex; align-items: center; padding: 7px 16px;
   background: var(--white); border: 1.5px solid var(--border); border-radius: 100px;
   font-size: 0.83rem; font-weight: 500; color: var(--text-mid);
+  font-family: 'Twemoji Country Flags', var(--font-body), sans-serif;
   transition: border-color 0.2s;
   &:hover { border-color: var(--gold); }
 }

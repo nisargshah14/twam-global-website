@@ -4,9 +4,25 @@
   "cover_image": "assets/images/uploads/product/sugar_202604230101.jpeg",
   "description": "White Sugar, Raw Sugar, Organic Sugar",
   "products": [
-    { "name": "White Refined Sugar", "sublabel": "S-30, M-30 grade", "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" },
-    { "name": "Raw Sugar", "sublabel": "ICUMSA 600-1200", "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&q=80" },
-    { "name": "Organic Sugar", "sublabel": "ICUMSA 45 & 150", "image": "https://images.unsplash.com/photo-1602519989993-ae40e4e43b0a?w=400&q=80" },
-    { "name": "Jaggery", "sublabel": "Block, powder, liquid", "image": "https://images.unsplash.com/photo-1612183191408-2fc8b5c9c3db?w=400&q=80" }
+    {
+      "name": "White Refined Sugar",
+      "sublabel": "S-30, M-30 grade",
+      "image": "assets/images/uploads/product/whiterefinedsugar_20260507112044.jpg"
+    },
+    {
+      "name": "Raw Sugar",
+      "sublabel": "ICUMSA 600-1200",
+      "image": "assets/images/uploads/product/raw_sugar_20260507112054.jpg"
+    },
+    {
+      "name": "Organic Sugar",
+      "sublabel": "ICUMSA 45 & 150",
+      "image": "assets/images/uploads/product/organicsugar_20260507112103.jpg"
+    },
+    {
+      "name": "Jaggery",
+      "sublabel": "Block, powder, liquid",
+      "image": "assets/images/uploads/product/jaggery_20260507112110.jpg"
+    }
   ]
 }
