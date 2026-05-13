@@ -23,7 +23,7 @@ export class GoatMilkComponent implements OnInit, OnDestroy {
   private observer?: IntersectionObserver;
   private utmParams: Record<string, string> = {};
 
-  readonly whatsappLink = `https://wa.me/919727763616?text=Hi%2C%20I%27m%20interested%20in%20your%20Goat%20Milk%20Powder.%20Can%20you%20share%20pricing%20and%20sample%20details%3F`;
+  readonly whatsappLink = `https://wa.me/919274863616?text=Hi%2C%20I%27m%20interested%20in%20your%20Goat%20Milk%20Powder.%20Can%20you%20share%20pricing%20and%20sample%20details%3F`;
 
   form = { name: '', email: '', phone: '' };
   errors: Record<string, string> = {};
